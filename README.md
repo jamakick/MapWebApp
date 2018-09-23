@@ -21,14 +21,13 @@ Main Role: BA / Dev
 - Training Item 1: Javascript ({4-6 weeks})
 - Training Item 2: PHP refresher ({3 weeks})
 
-### Kickbush, Jake (iu username)
-Main Role: 
+### Kickbush, Jake (jamakick)
+Main Role: Developer/ QA
 
 #### Training
-- Training Item 1 ({estimated time})
-- Training Item 2 ({estimated time})
-- Training Item 3 ({estimated time})
-- Training Item 4 ({estimated time})
+- Training Item 1: Javascript ({2-3 weeks})
+- Training Item 2: PHP ({1-2 weeks})
+- Training Item 3: Python for possible in-site search engine ({2-3 weeks})
 
 ### Meng, Marcos (marcmeng)
 Main Role: UX/Visual Designer
