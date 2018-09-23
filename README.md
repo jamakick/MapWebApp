@@ -34,7 +34,5 @@ Main Role:
 Main Role: UX/Visual Designer
 
 #### Training
-- Training Item 1 ({estimated time})
-- Training Item 2 ({estimated time})
-- Training Item 3 ({estimated time})
-- Training Item 4 ({estimated time})
+- Training Item 1: Javascript ({~ 6 weeks})
+- Training Item 2: CSS refresher ({2 weeks})
