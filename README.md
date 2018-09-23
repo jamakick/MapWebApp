@@ -6,7 +6,7 @@ This repository is for Capstone 2018-19.
 | Item          | Value          |
 | ------------- |:--------------:|
 | Team Number   | 38             |
-| Team Name     |                |
+| Team Name     | Cold Case Connection |
 | Assigned AI   | Kushwah, Aditya|
 | Platform      | Web            |
 | Description   | An interactive map and forum for cold case enthusiasts               |
