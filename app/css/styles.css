@@ -32,7 +32,7 @@ html {
 }
 
 img {
-    width: 100%;
+    width: 50%;
     display: block;
 }
 
@@ -42,6 +42,11 @@ img {
   display: table;
   clear: both;
 }
+
+div {
+	border: 1px solid black;
+}
+
 
 /* MEDIA QUERIES */
 /* X-Small devices (portait phones, less than 576px) */
