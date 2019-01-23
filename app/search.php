@@ -30,13 +30,10 @@
 					</div>
 		</nav>
 
-		<div class="mapView">
-		<h1> MAP GOES HERE </h1>
+		<div class="searchBar">
+		<h1> Search Bar </h1>
 		</div>
 
-		<div class="sideView">
-		<h1> SIDE PANEL FOR SEARCH RESULTS/MAP INFORMATION</h1>
-		</div>
 
 
 		<footer>

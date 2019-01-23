@@ -30,12 +30,8 @@
 					</div>
 		</nav>
 
-		<div class="mapView">
-		<h1> MAP GOES HERE </h1>
-		</div>
-
-		<div class="sideView">
-		<h1> SIDE PANEL FOR SEARCH RESULTS/MAP INFORMATION</h1>
+		<div class="profile">
+		<h1>User Profile information</h1>
 		</div>
 
 
