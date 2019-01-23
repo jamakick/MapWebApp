@@ -1,0 +1,36 @@
+<?php
+session_start();
+
+$connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
+
+if (!$connection) {
+	die("Failed to connect to MySQL: " . mysqli_connect_error() );
+}
+
+$username = mysqli_real_escape_string($connection, $_POST['username']);
+
+$password = mysqli_real_escape_string($connection, $_POST['password']);
+
+$passQuery = mysqli_query($connection, "Select password from Users where username = '$username'");
+
+if (mysqli_num_rows($passQuery) > 0) {
+	while ($row = mysqli_fetch_assoc($passQuery)) {
+		$correct = password_verify($password, $row["password"]);}}
+
+if ($correct) {
+	$_SESSION['username'] = $username;
+	$_SESSION['timestamp'] = time();
+
+	mysqli_free_result($passQuery);
+	mysqli_close($connection);
+
+	header('Location: index.html');
+}
+
+else {
+	header('Location: login.php?login=fail');
+}
+
+
+
+?>
