@@ -23,6 +23,7 @@
 	<form action="registerProcess.php" method="post">
 	<div>
 	<div class="registerForm">First Name: <input type="text" name="firstName" required></div>
+	<div class="registerForm">Last Name: <input type="text" name="lastName" required></div>
 	<div class="registerForm">Username: <input type="text" name="username" required></div>
 	<div class="registerForm">Email: <input type="text" name="email" required></div>
 	<div class="registerForm">Password: <input type="password" name="password" required></div>

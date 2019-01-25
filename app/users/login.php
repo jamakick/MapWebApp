@@ -29,7 +29,7 @@ session_start();
 
 	<h1 id ="register"> Log In </h1>
 
-	<form action="login-process.php" method="post">
+	<form action="loginProcess.php" method="post">
 	<div>
 	<div class="registerForm">Username: <input type="text" name="username" required></div>
 	<div class="registerForm">Password: <input type="password" name="password" required></div>

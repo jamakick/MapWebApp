@@ -41,9 +41,11 @@
 
 		$password = mysqli_real_escape_string($connection, validate($_POST['password']));
 
-		$emailQuery = "SELECT email from Users where email = '$email';";
+		$lastName = mysqli_real_escape_string($connection, validate($_POST['lastName']));
 
-		$userQuery = "SELECT username from Users where username = '$username';";
+		$emailQuery = "SELECT user_email from users where email = '$email';";
+
+		$userQuery = "SELECT username from users where username = '$username';";
 
 		$fail = False;
 
@@ -64,7 +66,7 @@
 
 		$newPass = password_hash($password, PASSWORD_DEFAULT);
 
-		$query = "INSERT INTO Users (username, password, email, firstName) VALUES ('$username', '$newPass', '$email', '$firstName')";
+		$query = "INSERT INTO users (username, password, user_email, user_first, user_last) VALUES ('$username', '$newPass', '$email', '$firstName', '$lastName')";
 		}
 
 		else {
