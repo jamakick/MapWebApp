@@ -11,7 +11,8 @@ $username = mysqli_real_escape_string($connection, $_POST['username']);
 
 $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-$passQuery = mysqli_query($connection, "Select password from Users where username = '$username'");
+$passQuery = mysqli_query($connection, "Select password from users where username = '$username'");
+
 
 if (mysqli_num_rows($passQuery) > 0) {
 	while ($row = mysqli_fetch_assoc($passQuery)) {
@@ -24,10 +25,12 @@ if ($correct) {
 	mysqli_free_result($passQuery);
 	mysqli_close($connection);
 
-	header('Location: index.html');
+	header('Location: ../index.php');
 }
 
 else {
+	mysqli_free_result($passQuery);
+	mysqli_close($connection);
 	header('Location: login.php?login=fail');
 }
 
