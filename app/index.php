@@ -30,9 +30,20 @@
 					</div>
 		</nav>
 
-		<div class="mapView">
-		<h1> MAP GOES HERE </h1>
-		</div>
+		<div id="map"></div>
+
+		<script>
+
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: 37.0902, lng: -95.7129},
+				zoom: 5
+			});
+		}
+		</script>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZEJyvEqCczHBAYFHU28pUA1AMHYgOFg&callback=initMap" aysnc defer></script>
 
 		<div class="sideView">
 		<h1> SIDE PANEL FOR SEARCH RESULTS/MAP INFORMATION</h1>
