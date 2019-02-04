@@ -45,20 +45,20 @@
 		if (mysqli_num_rows($userQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($userQuery)) {
 
-				$oneCase = array($row["id"],
-							$row["victim_first"],
-							$row["victim_last"],
-							$row["victim_gender"],
-							$row["victim_race"],
-							$row["victim_dob"],
-							$row["city"],
-							$row["state"],
-							$row["zip"],
-							$row["cause"],
-							$row["offense"],
-							$row["year"],
-							$row["lat"],
-							$row["longtd"]);
+				$oneCase = array(utf8_encode($row["id"]),
+							utf8_encode($row["victim_first"]),
+							utf8_encode($row["victim_last"]),
+							utf8_encode($row["victim_gender"]),
+							utf8_encode($row["victim_race"]),
+							utf8_encode($row["victim_dob"]),
+							utf8_encode($row["city"]),
+							utf8_encode($row["state"]),
+							utf8_encode($row["zip"]),
+							utf8_encode($row["cause"]),
+							utf8_encode($row["offense"]),
+							utf8_encode($row["year"]),
+							utf8_encode($row["lat"]),
+							utf8_encode($row["longtd"]));
 
 				array_push($allCases, $oneCase);
 
@@ -72,7 +72,7 @@
 
 		<script>
 
-		var cases = <?php echo $allCases; ?>;
+		var cases = <?php echo json_encode($allCases) ?>;
 
 		var map;
 		function initMap() {
@@ -81,12 +81,11 @@
 				zoom: 5
 			});
 
-		for each (var case in cases) {
-			var markerString = "testString";
-			console.log(case);
+		for (var i = 0; i < cases.length; i++) {
+			var markerString = String(cases[i]);
 
 			var marker = new google.maps.Marker({
-			  	position: {lat: 37.0902, lng: -95.7129},
+			  	position: {lat: parseFloat(cases[i][12]), lng: parseFloat(cases[i][13])},
 			  	map: map,
 			  	title: "testTitle"
 				});
