@@ -32,7 +32,47 @@
 
 		<div id="map"></div>
 
+		<?php  $connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
+
+		if (!$connection) {
+			die("Failed to connect to MySQL: " . mysqli_connect_error() );
+		}
+
+		$userQuery = mysqli_query($connection, "Select * from cases");
+
+		$allCases = array();
+
+		if (mysqli_num_rows($userQuery) > 0) {
+			while ($row = mysqli_fetch_assoc($userQuery)) {
+
+				$oneCase = array($row["id"],
+							$row["victim_first"],
+							$row["victim_last"],
+							$row["victim_gender"],
+							$row["victim_race"],
+							$row["victim_dob"],
+							$row["city"],
+							$row["state"],
+							$row["zip"],
+							$row["cause"],
+							$row["offense"],
+							$row["year"],
+							$row["lat"],
+							$row["longtd"]);
+
+				array_push($allCases, $oneCase);
+
+			}
+			mysqli_free_result($userQuery);
+
+		}
+		mysqli_close($connection);
+
+		?>
+
 		<script>
+
+		var cases = <?php echo $allCases; ?>;
 
 		var map;
 		function initMap() {
@@ -40,7 +80,30 @@
 				center: {lat: 37.0902, lng: -95.7129},
 				zoom: 5
 			});
+
+		for each (var case in cases) {
+			var markerString = "testString";
+			console.log(case);
+
+			var marker = new google.maps.Marker({
+			  	position: {lat: 37.0902, lng: -95.7129},
+			  	map: map,
+			  	title: "testTitle"
+				});
+
+			var infowindow = new google.maps.InfoWindow({
+				content: markerString,
+				maxWidth: 600
+				});
+
+			marker.addListener('click', function() {
+				infowindow.open(map, marker);
+			});
+
+			}
+
 		}
+
 		</script>
 
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZEJyvEqCczHBAYFHU28pUA1AMHYgOFg&callback=initMap" aysnc defer></script>
