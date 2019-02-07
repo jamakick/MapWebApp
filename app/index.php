@@ -75,6 +75,7 @@
 		var cases = <?php echo json_encode($allCases) ?>;
 
 		var map;
+
 		function initMap() {
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: 37.0902, lng: -95.7129},
@@ -82,7 +83,7 @@
 			});
 
 		for (var i = 0; i < cases.length; i++) {
-			var markerString = String(cases[i]);
+			var markerString = String(cases[i]) + "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a>";
 
 			var marker = new google.maps.Marker({
 			  	position: {lat: parseFloat(cases[i][12]), lng: parseFloat(cases[i][13])},

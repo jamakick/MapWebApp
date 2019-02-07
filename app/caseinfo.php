@@ -21,13 +21,17 @@
 
 		// $username = $_SESSION['username'];
 
+		if (isset($_GET["id"])) {
+			$id = $_GET["id"];
+		}
+
 		$connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
 
 		if (!$connection) {
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
-		$userQuery = mysqli_query($connection, "Select * from cases limit 1");
+		$userQuery = mysqli_query($connection, "Select * from cases where id = $id");
 
 		if (mysqli_num_rows($userQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($userQuery)) {
