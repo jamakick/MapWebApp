@@ -76,6 +76,27 @@
 
 		var map;
 
+		var markers = []
+
+		function createMarker(location, title, infoString) {
+			var marker = new google.maps.Marker({
+				position: location,
+				map: map,
+				title: title
+			});
+
+			var infowindow = new google.maps.InfoWindow({
+				content: infoString,
+				maxWidth: 600
+			});
+
+			markers.push(marker);
+
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+			});
+		}
+
 		function initMap() {
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: 37.0902, lng: -95.7129},
@@ -84,21 +105,9 @@
 
 		for (var i = 0; i < cases.length; i++) {
 			var markerString = String(cases[i]) + "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a>";
+			var position = {lat: parseFloat(cases[i][12]), lng: parseFloat(cases[i][13])};
 
-			var marker = new google.maps.Marker({
-			  	position: {lat: parseFloat(cases[i][12]), lng: parseFloat(cases[i][13])},
-			  	map: map,
-			  	title: "testTitle"
-				});
-
-			var infowindow = new google.maps.InfoWindow({
-				content: markerString,
-				maxWidth: 600
-				});
-
-			marker.addListener('click', function() {
-				infowindow.open(map, marker);
-			});
+			createMarker(position, "testTitle", markerString);
 
 			}
 
