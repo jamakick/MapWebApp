@@ -6,6 +6,12 @@ html {
     box-sizing: inherit;
 }
 
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 /* Browser Upgrade Prompt */
 .browserupgrade {
     margin: 0.2em 0;
@@ -43,9 +49,12 @@ img {
   clear: both;
 }
 
-div {
-	border: 1px solid black;
+
+#map {
+	height: 100%;
 }
+
+
 
 
 /* MEDIA QUERIES */
