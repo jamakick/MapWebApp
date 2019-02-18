@@ -16,6 +16,24 @@
 	</head>
 
 	<body>
+
+
+		<nav role="navigation">
+					<div class="logo">
+					<a href="index.html"><h1>Cold Case Connection</h1></a>
+					</div>
+					<div class="menuLinks">
+						<ul>
+							<li><a href="#">Search</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Subscriptions</a></li>
+						</ul>
+					</div>
+		</nav>
+
+		<div class="forum">
+
+
 		<?php
 
 		// $username = $_SESSION['username'];
@@ -30,51 +48,41 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
-		$userQuery = mysqli_query($connection, "Select * from Threads where thread_case = 13"); #hard coded for now
+		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_case = 13"); #hard coded for now
+		$caseQuery = mysqli_query($connection, "Select victim_first, victim_last from cases where id = 13"); #also hard coded
 
-		if (mysqli_num_rows($userQuery) > 0) {
-			while ($row = mysqli_fetch_assoc($userQuery)) {
+		if (mysqli_num_rows($caseQuery) > 0) {
+			while ($record = mysqli_fetch_assoc($caseQuery)) {
+				echo "<h1>Case Discussion: " . $record["victim_first"] . " " . $record["victim_last"] . "</h1>";
+			}
+		}
 
-				echo "<table>";
-				echo "<tr>";
-				echo "<th>Thread Title</th>";
-				echo "<th>Replies</th>";
-				echo "<th>Votes</th>";
-				echo "</tr>"
+
+		echo "<table border=1px>";
+		echo "<tr>";
+		echo "<th>Thread Title</th>";
+		echo "<th>Date</th>";
+		echo "<th>Replies</th>";
+		echo "<th>Votes</th>";
+		echo "</tr>";
+
+		if (mysqli_num_rows($threadQuery) > 0) {
+			while ($row = mysqli_fetch_assoc($threadQuery)) {
+
 
 				echo "<tr>";
 				echo "<td>" . $row["thread_title"] . "</td>";
+				echo "<td>" . $row["thread_date"] . "</td>";
+				echo "<td>17</td>"; #also hard coded for now
+				echo "<td>398</td>"; #also hard coded for now
+				echo "</tr>";
 
-				echo "<p>Victim's ID: " . $row["id"] . "</p>";
-				echo "<p>Victim's Name: " . $row["victim_first"] . " " . $row["victim_last"] . "</p>";
-				echo "<p>Victim's Gender: " . $row["victim_gender"] . "</p>";
-				echo "<p>Victim's Race: " . $row["victim_race"] . "</p>";
-				echo "<p>Victim's Date of Birth: " . $row["victim_dob"] . "</p>";
-				echo "<p>Crime Location: " . $row["city"] . ", " . $row["state"] . " " . $row["zip"] . "</p>";
-				echo "<p>Victim's Cause of Death: " . $row["cause"] . "</p>";
-				echo "<p>Crime Offense: " . $row["offense"] . "</p>";
-				echo "<p>Year of Crime: " . $row["year"] . "</p>";
 			}
-
 		}
 
+		echo "</table>";
+
 		 ?>
-
-		<nav role="navigation">
-					<div class="logo">
-					<a href="index.html"><h1>Cold Case Connection Forum</h1></a>
-					</div>
-					<div class="menuLinks">
-						<ul>
-							<li><a href="#">Search</a></li>
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Subscriptions</a></li>
-						</ul>
-					</div>
-		</nav>
-
-		<div class="forum">
-		<h1> Forum</h1>
 		</div>
 
 
