@@ -73,8 +73,8 @@
 				echo "<tr>";
 				echo "<td>" . $row["thread_title"] . "</td>";
 				echo "<td>" . $row["thread_date"] . "</td>";
-				echo "<td>17</td>"; #also hard coded for now
-				echo "<td>398</td>"; #also hard coded for now
+				echo "<td>" . $row["thread_replies"] . "</td>";
+				echo "<td>" . $row["thread_votes"]  . "</td>";
 				echo "</tr>";
 
 			}
