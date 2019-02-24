@@ -40,7 +40,7 @@
 
 		if (isset($_GET["id"])) {
 			$id = $_GET["id"];
-      echo "This is the id: " . $id ;
+      //echo "This is the id: " . $id ;
 		}
 
 		$connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
@@ -58,6 +58,7 @@
         echo "<h2>" . $record["thread_title"] . "</h2>";
         echo "<p>Votes:" . $record["votes"] . " <a href='#'>Upvote</a> <a href='#'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
+        echo "<p><a href='createThreadForm.php?id=$id'>Reply to Thread</a></p>";
 			}
 		}
 
@@ -76,6 +77,8 @@
 
         $authorId = $row["reply_by"];
 
+        $replyId = $row["reply_id"];
+
         $replyAuthor = mysqli_query($connection, "Select username from users where id = $authorId;");
 
 
@@ -84,6 +87,7 @@
 				echo "<td>" . $row["thread_date"] . "</td>";
 				echo "<td>" . $row["thread_replies"] . "</td>";
 				echo "<td>" . $row["thread_votes"]  . "</td>";
+        echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
 				echo "</tr>";
 
 			}
