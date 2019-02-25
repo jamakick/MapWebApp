@@ -23,46 +23,47 @@
 	<h2>Reply to:</h2>
 	<?php
 
-	// $username = $_SESSION['username'];
+		// $username = $_SESSION['username'];
 
-	if (isset($_GET["id"])) {
-		$id = $_GET["id"];
-		$db = "Threads";
-		$idName = "thread_id"; //Inelegant -- fix this
-		$contentName = "thread_content";
-		//echo "Got parent thread information";
-		//echo "This is the id: " . $id ;
-	} elseif (isset($_GET["rid"])) {
-		$id = $_GET["rid"];
-		$db = "Replies";
-		$idName = "reply_id"; // inelegant -- fix this
-		$contentName = "reply_content";
-		//echo "Got parent reply information";
-	} else {
-		echo "We were unable to locate the thread or reply you were replying to. Please try again.";
-	}
-
-	$connection= mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
-
-	if (!$connection) {
-		die("Failed to connect to MySQL: " . mysqli_connect_error() );
-	}
-
-	$findParent = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
-
-	if(!$findParent)
-	{
-			//the query failed, quit
-			echo "An error occured finding the parent thread or reply." . mysqli_error($connection) . " Please try again later.";
-	}
-	else
-	{
-		while ($record = mysqli_fetch_assoc($user_result)) {
-			$content = $record[$contentName];
+		if (isset($_GET["id"])) {
+			$id = $_GET["id"];
+			$db = "Threads";
+			$idName = "thread_id"; //Inelegant -- fix this
+			$contentName = "thread_content";
+			//echo "Got parent thread information<br>";
+			//echo "This is the id: " . $id ;
+		} elseif (isset($_GET["rid"])) {
+			$id = $_GET["rid"];
+			$db = "Replies";
+			$idName = "reply_id"; // inelegant -- fix this
+			$contentName = "reply_content";
+			//echo "Got parent reply information<br>";
+		} else {
+			echo "We were unable to locate the thread or reply you were replying to. Please try again.";
 		}
 
-		echo "<p>" . $content . "</p";
-	}
+		$connection= mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
+
+		if (!$connection) {
+			die("Failed to connect to MySQL: " . mysqli_connect_error() );
+		}
+
+		$findParent = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
+
+		if(!$findParent)
+		{
+				//the query failed, quit
+				echo "An error occured finding the parent thread or reply." . mysqli_error($connection) . " Please try again later.";
+		}
+		else
+		{
+			//echo "A parent thread or comment was found<br>";
+			while ($record = mysqli_fetch_assoc($findParent)) {
+				$content = $record[$contentName];
+			}
+
+			echo "<p>" . $content . "</p";
+		}
 
 
 	?>

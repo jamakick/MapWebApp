@@ -71,6 +71,7 @@
       echo "<th>Username</th>";
       echo "<th>Reply text</th>";
       echo "<th>Date</th>";
+      echo "<th>Replies</th>";
       echo "<th>Votes</th>";
       echo "</tr>";
 
@@ -93,14 +94,18 @@
 
 				echo "<tr>";
 				echo "<td>" . $replyAuthor . "</td>";
+        echo "<td>" . $row["reply_content"] . "</td>";
 				echo "<td>" . $row["reply_date"] . "</td>";
 				echo "<td>" . $row["reply_replies"] . "</td>";
 				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
+        echo "<td><a href='#'>Report</a></td>";
 				echo "</tr>";
 
 			}
-		}
+		} else {
+      echo "There are no replies yet.";
+    }
 
 		echo "</table>";
 
