@@ -49,8 +49,8 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
-		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id"); #dynamically generated
-		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id"); #dynamically generated
+		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;"); #dynamically generated
+		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;"); #dynamically generated
 
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
@@ -73,20 +73,29 @@
       echo "<th>Date</th>";
       echo "<th>Votes</th>";
       echo "</tr>";
+
 			while ($row = mysqli_fetch_assoc($replyQuery)) {
 
         $authorId = $row["reply_by"];
 
         $replyId = $row["reply_id"];
 
-        $replyAuthor = mysqli_query($connection, "Select username from users where id = $authorId;");
+
+        $authorQuery = mysqli_query($connection, "Select username from users where user_id = $authorId;");
+
+        while ($record = mysqli_fetch_assoc($authorQuery)) {
+          $replyAuthor = $record["username"];
+
+        }
+
+        //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
 
 
 				echo "<tr>";
 				echo "<td>" . $replyAuthor . "</td>";
-				echo "<td>" . $row["thread_date"] . "</td>";
-				echo "<td>" . $row["thread_replies"] . "</td>";
-				echo "<td>" . $row["thread_votes"]  . "</td>";
+				echo "<td>" . $row["reply_date"] . "</td>";
+				echo "<td>" . $row["reply_replies"] . "</td>";
+				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
 				echo "</tr>";
 
