@@ -70,7 +70,7 @@
 
 
 	<form action="createReplyProcess.php" method="post">
-	<div>
+	<div>	
 	<div class="createReplyForm">Reply Content: <textarea name="content" required>Type your reply here:</textarea></div>
 
 	<div class="response">
