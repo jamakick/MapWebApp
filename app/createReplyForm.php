@@ -30,14 +30,15 @@
 			$db = "Threads";
 			$idName = "thread_id"; //Inelegant -- fix this
 			$contentName = "thread_content";
-			//echo "Got parent thread information<br>";
-			//echo "This is the id: " . $id ;
+			echo "Got parent thread information<br>";
+			echo "This is the id: " . $id ;
+			echo " This is the idName: " . $idName	;
 		} elseif (isset($_GET["rid"])) {
 			$id = $_GET["rid"];
 			$db = "Replies";
 			$idName = "reply_id"; // inelegant -- fix this
 			$contentName = "reply_content";
-			//echo "Got parent reply information<br>";
+			echo "Got parent reply information<br>";
 		} else {
 			echo "We were unable to locate the thread or reply you were replying to. Please try again.";
 		}
@@ -50,7 +51,7 @@
 
 		$findParent = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
 
-		if(!$findParent)
+		if(mysqli_num_rows($findParent) = 0):
 		{
 				//the query failed, quit
 				echo "An error occured finding the parent thread or reply." . mysqli_error($connection) . " Please try again later.";
@@ -62,15 +63,17 @@
 				$content = $record[$contentName];
 			}
 
+
 			echo "<p>" . $content . "</p";
-		}
+
+		} 
 
 
 	?>
 
 
-	<form action="createReplyProcess.php" method="post">
-	<div>	
+	<form action="createReplyProcess.php" method="POST">
+	<div>
 	<div class="createReplyForm">Reply Content: <textarea name="content" required>Type your reply here:</textarea></div>
 
 	<div class="response">
@@ -89,6 +92,8 @@
 	<div class="createReplyForm"><input type="submit" value="Submit"></div>
 	<div class="createReplyForm"><input type="reset">
 	</div>
+
+</div>
 
 	</form>
 

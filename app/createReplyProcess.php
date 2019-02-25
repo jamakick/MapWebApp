@@ -2,8 +2,10 @@
 //createReplyProcess.php
 session_start();
 
+
+
 if(!$_SESSION["username"]) /* FIND BETTER WAY TO ANNOTATE SIGNED-ON-NESS, e.g. if($_SESSION['signed_in'] == false) */
-{
+ {
     //the user is not signed in
     echo "Sorry, you have to be <a href='../users/login.php'>signed in</a> to create a reply.";
 }
