@@ -35,8 +35,14 @@
 
 
 		<?php
+<<<<<<< Updated upstream
 
 		// $username = $_SESSION['username'];
+=======
+		session_start();
+
+		$username = $_SESSION['username'];
+>>>>>>> Stashed changes
 
 		if (isset($_GET["id"])) {
 			$id = $_GET["id"];
@@ -49,16 +55,39 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
+<<<<<<< Updated upstream
 		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;"); #dynamically generated
 		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;"); #dynamically generated
 
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
+=======
+		$userQuery = mysqli_query($connection, "Select user_id from users where username = '$username';");
+		if (mysqli_num_rows($userQuery) > 0) {
+			while ($user = mysqli_fetch_assoc($userQuery)) {
+				$user_id = $user["user_id"];
+			//	echo "Confirmed user ID";
+			}
+		}
+
+		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
+		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
+
+
+		if (mysqli_num_rows($threadQuery) > 0) {
+			while ($record = mysqli_fetch_assoc($threadQuery)) {
+>>>>>>> Stashed changes
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
         echo "<p>Votes:" . $record["votes"] . " <a href='#'>Upvote</a> <a href='#'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
+<<<<<<< Updated upstream
+=======
+				if ($user_id == $record["thread_by"]) {
+					echo "<p><a href='#'>Delete Thread</a></p>";
+				}
+>>>>>>> Stashed changes
 			}
 		}
 
@@ -100,6 +129,12 @@
 				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
         echo "<td><a href='#'>Report</a></td>";
+<<<<<<< Updated upstream
+=======
+				if ($user_id == $authorId) {
+					echo "<td><a href='#'>Delete Thread</a></td>";
+				}
+>>>>>>> Stashed changes
 				echo "</tr>";
 
 			}
