@@ -49,6 +49,7 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
+
 		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;"); #dynamically generated
 		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;"); #dynamically generated
 
@@ -81,7 +82,6 @@
 
         $replyId = $row["reply_id"];
 
-
         $authorQuery = mysqli_query($connection, "Select username from users where user_id = $authorId;");
 
         while ($record = mysqli_fetch_assoc($authorQuery)) {
@@ -90,6 +90,7 @@
         }
 
         //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
+
 
 
 				echo "<tr>";
