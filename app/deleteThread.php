@@ -58,5 +58,5 @@
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
       }
     }
-    echo "<a href='#'>Yes, Delete</a>";
-    echo "<a href='viewThread?id=$id'>No, go back!</a>";
+    echo "<a href='#'>Yes, Delete</a><br>";
+    echo "<a href='viewThread.php?id=$id'>No, go back!</a>";
