@@ -35,8 +35,9 @@
 
 
 		<?php
+		session_start();
 
-		// $username = $_SESSION['username'];
+		$username = $_SESSION['username'];
 
 		if (isset($_GET["id"])) {
 			$id = $_GET["id"];
@@ -49,16 +50,28 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
-		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id"); #dynamically generated
-		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id"); #dynamically generated
+		$userQuery = mysqli_query($connection, "Select user_id from users where username = '$username';");
+		if (mysqli_num_rows($userQuery) > 0) {
+			while ($user = mysqli_fetch_assoc($userQuery)) {
+				$user_id = $user["user_id"];
+			//	echo "Confirmed user ID";
+			}
+		}
 
-		if (mysqli_num_rows($caseQuery) > 0) {
-			while ($record = mysqli_fetch_assoc($caseQuery)) {
+		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
+		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
+
+
+		if (mysqli_num_rows($threadQuery) > 0) {
+			while ($record = mysqli_fetch_assoc($threadQuery)) {
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
         echo "<p>Votes:" . $record["votes"] . " <a href='#'>Upvote</a> <a href='#'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
-        echo "<p><a href='createThreadForm.php?id=$id'>Reply to Thread</a></p>";
+        echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
+				if ($user_id == $record["thread_by"]) {
+					echo "<p><a href='deleteThread.php?id=$id'>Delete Thread</a></p>";
+				}
 			}
 		}
 
@@ -71,27 +84,44 @@
       echo "<th>Username</th>";
       echo "<th>Reply text</th>";
       echo "<th>Date</th>";
+      echo "<th>Replies</th>";
       echo "<th>Votes</th>";
       echo "</tr>";
+
 			while ($row = mysqli_fetch_assoc($replyQuery)) {
 
         $authorId = $row["reply_by"];
 
         $replyId = $row["reply_id"];
 
-        $replyAuthor = mysqli_query($connection, "Select username from users where id = $authorId;");
+
+        $authorQuery = mysqli_query($connection, "Select username from users where user_id = $authorId;");
+
+        while ($record = mysqli_fetch_assoc($authorQuery)) {
+          $replyAuthor = $record["username"];
+
+        }
+
+        //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
 
 
 				echo "<tr>";
 				echo "<td>" . $replyAuthor . "</td>";
-				echo "<td>" . $row["thread_date"] . "</td>";
-				echo "<td>" . $row["thread_replies"] . "</td>";
-				echo "<td>" . $row["thread_votes"]  . "</td>";
+        echo "<td>" . $row["reply_content"] . "</td>";
+				echo "<td>" . $row["reply_date"] . "</td>";
+				echo "<td>" . $row["reply_replies"] . "</td>";
+				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
+        echo "<td><a href='#'>Report</a></td>";
+				if ($user_id == $authorId) {
+					echo "<td><a href='deleteThread.php?id=$id'>Delete Reply</a></td>";
+				}
 				echo "</tr>";
 
 			}
-		}
+		} else {
+      echo "There are no replies yet.";
+    }
 
 		echo "</table>";
 

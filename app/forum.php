@@ -71,7 +71,7 @@
 
 
 				echo "<tr>";
-				echo "<td>" . $row["thread_title"] . "</td>";
+				echo "<td><a href='viewThread.php?id=" . $row["thread_id"] . "'>" . $row["thread_title"] . "</a></td>";
 				echo "<td>" . $row["thread_date"] . "</td>";
 				echo "<td>" . $row["thread_replies"] . "</td>";
 				echo "<td>" . $row["thread_votes"]  . "</td>";
