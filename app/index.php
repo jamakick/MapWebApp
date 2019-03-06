@@ -74,6 +74,24 @@
 
 		var cases = <?php echo json_encode($allCases) ?>;
 
+		if (window.location.search) {
+
+		var searchIDs = window.location.search.split("=")[1].split(",");
+
+		console.log(searchIDs);
+
+		var newCases = new Array();
+
+		for (var i = 0; i < cases.length; i++) {
+			if (searchIDs.includes(cases[i][0])) {
+				newCases.push(cases[i])
+			}
+		}
+
+		cases = newCases;
+
+		}
+
 		var map;
 
 		var markers = []
@@ -119,9 +137,18 @@
 
 		<div class="sideView">
 		<h1> SIDE PANEL FOR SEARCH RESULTS/MAP INFORMATION</h1>
+
+		<p>
+
+		<form action="search/search.cgi">
+			<input type="text" name ="terms">
+			<input type="submit" value="Search">
+		</form>
+
+		</p>
 		</div>
 
-
+ 
 		<footer>
 		<div class="footerDiv">
 		<p>footer</p>
