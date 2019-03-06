@@ -34,15 +34,11 @@
 		<div class="forum">
 
 
-		<?php
-<<<<<<< Updated upstream
-
-		// $username = $_SESSION['username'];
-=======
+<?php
 		session_start();
 
 		$username = $_SESSION['username'];
->>>>>>> Stashed changes
+
 
 		if (isset($_GET["id"])) {
 			$id = $_GET["id"];
@@ -55,17 +51,15 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-
->>>>>>> 952f82be6431d6e5813580b56160d0c6419fee33
 		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;"); #dynamically generated
 		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;"); #dynamically generated
 
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
-=======
+
+			}
+		}
+
 		$userQuery = mysqli_query($connection, "Select user_id from users where username = '$username';");
 		if (mysqli_num_rows($userQuery) > 0) {
 			while ($user = mysqli_fetch_assoc($userQuery)) {
@@ -80,18 +74,14 @@
 
 		if (mysqli_num_rows($threadQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
->>>>>>> Stashed changes
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
         echo "<p>Votes:" . $record["votes"] . " <a href='#'>Upvote</a> <a href='#'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
-<<<<<<< Updated upstream
-=======
 				if ($user_id == $record["thread_by"]) {
 					echo "<p><a href='#'>Delete Thread</a></p>";
 				}
->>>>>>> Stashed changes
 			}
 		}
 
@@ -119,36 +109,27 @@
         while ($record = mysqli_fetch_assoc($authorQuery)) {
           $replyAuthor = $record["username"];
 
-        }
-
-        //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
-
-
-
-				echo "<tr>";
-				echo "<td>" . $replyAuthor . "</td>";
-        echo "<td>" . $row["reply_content"] . "</td>";
-				echo "<td>" . $row["reply_date"] . "</td>";
-				echo "<td>" . $row["reply_replies"] . "</td>";
-				echo "<td>" . $row["reply_votes"]  . "</td>";
-        echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
-        echo "<td><a href='#'>Report</a></td>";
-<<<<<<< Updated upstream
-=======
-				if ($user_id == $authorId) {
-					echo "<td><a href='#'>Delete Thread</a></td>";
+	        //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
+					echo "<tr>";
+					echo "<td>" . $replyAuthor . "</td>";
+	        echo "<td>" . $row["reply_content"] . "</td>";
+					echo "<td>" . $row["reply_date"] . "</td>";
+					echo "<td>" . $row["reply_replies"] . "</td>";
+					echo "<td>" . $row["reply_votes"]  . "</td>";
+	        echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
+	        echo "<td><a href='#'>Report</a></td>";
+					if ($user_id == $authorId) {
+						echo "<td><a href='#'>Delete Thread</a></td>";}
+					echo "</tr>";
 				}
->>>>>>> Stashed changes
-				echo "</tr>";
-
 			}
-		} else {
-      echo "There are no replies yet.";
-    }
+		}
+  else {
+    echo "There are no replies yet.";}
 
 		echo "</table>";
 
-		 ?>
+ ?>
 		</div>
 
 
