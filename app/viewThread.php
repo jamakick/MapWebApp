@@ -34,11 +34,10 @@
 		<div class="forum">
 
 
-<?php
+		<?php
 		session_start();
 
 		$username = $_SESSION['username'];
-
 
 		if (isset($_GET["id"])) {
 			$id = $_GET["id"];
@@ -80,7 +79,7 @@
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
-					echo "<p><a href='#'>Delete Thread</a></p>";
+					echo "<p><a href='deleteThread.php?id=$id'>Delete Thread</a></p>";
 				}
 			}
 		}
@@ -108,24 +107,28 @@
 
         while ($record = mysqli_fetch_assoc($authorQuery)) {
           $replyAuthor = $record["username"];
+        }
 
-	        //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
-					echo "<tr>";
-					echo "<td>" . $replyAuthor . "</td>";
-	        echo "<td>" . $row["reply_content"] . "</td>";
-					echo "<td>" . $row["reply_date"] . "</td>";
-					echo "<td>" . $row["reply_replies"] . "</td>";
-					echo "<td>" . $row["reply_votes"]  . "</td>";
-	        echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
-	        echo "<td><a href='#'>Report</a></td>";
-					if ($user_id == $authorId) {
-						echo "<td><a href='#'>Delete Thread</a></td>";}
-					echo "</tr>";
+        //echo "<p>This is the author of the reply: " . $replyAuthor . "</p>";
+
+
+				echo "<tr>";
+				echo "<td>" . $replyAuthor . "</td>";
+        echo "<td>" . $row["reply_content"] . "</td>";
+				echo "<td>" . $row["reply_date"] . "</td>";
+				echo "<td>" . $row["reply_replies"] . "</td>";
+				echo "<td>" . $row["reply_votes"]  . "</td>";
+        echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
+        echo "<td><a href='#'>Report</a></td>";
+				if ($user_id == $authorId) {
+					echo "<td><a href='deleteThread.php?id=$id'>Delete Reply</a></td>";
 				}
+				echo "</tr>";
+
 			}
-		}
-  else {
-    echo "There are no replies yet.";}
+		} else {
+      echo "There are no replies yet.";
+    }
 
 		echo "</table>";
 
