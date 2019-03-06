@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Create Discussion Thread</title>
+		<title>Reply to Discussion Thread</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -51,23 +51,22 @@
 
 		$findParent = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
 
-		if(mysqli_num_rows($findParent) < 1) {
+		if(!mysqli_num_rows($findParent)): {
 				//the query failed, quit
 				echo "An error occured finding the parent thread or reply." . mysqli_error($connection) . " Please try again later.";
 		}
-		else {
-			//echo "A parent thread or comment was found<br>";
-			while ($record = mysqli_fetch_assoc($findParent)) {
-				$content = $record[$contentName];
+		else: {
+				//echo "A parent thread or comment was found<br>";
+				while ($record = mysqli_fetch_assoc($findParent)) {
+					$content = $record[$contentName];
+				}
+				echo "<p>" . $content . "</p>";
+
 			}
+		endif;
 
 
-			echo "<p>" . $content . "</p";
-
-		}
-
-
-	?>
+?>
 
 
 	<form action="createReplyProcess.php" method="POST">
@@ -76,15 +75,17 @@
 
 	<div class="response">
 
-	<?php
-		if($_GET) {
+ <!-- <? /*
+		 if($_GET) {
 			$response = $_GET['response'];
-			if (strcmp($response, "content") == 0) {
+			if (strcmp($response, "content") == 0): {
 				echo '<p>Your reply must include some content.</p>';
 			}
+		endif;
 		}
+	endif; */
 
-	?>
+	?> -->
 
 	</div>
 
