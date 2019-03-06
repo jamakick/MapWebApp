@@ -70,7 +70,7 @@
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
-					echo "<p><a href='#'>Delete Thread</a></p>";
+					echo "<p><a href='deleteThread.php?id=$id'>Delete Thread</a></p>";
 				}
 			}
 		}
@@ -114,7 +114,7 @@
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
-					echo "<td><a href='deleteThread.php?id=$id'>Delete Thread</a></td>";
+					echo "<td><a href='deleteThread.php?id=$id'>Delete Reply</a></td>";
 				}
 				echo "</tr>";
 
