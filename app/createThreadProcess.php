@@ -10,6 +10,11 @@ if(!$_SESSION["username"]) /* FIND BETTER WAY TO ANNOTATE SIGNED-ON-NESS, e.g. i
 else
 {
 
+    if (isset($_GET["id"])) {
+      $id = $_GET["id"];
+    //  echo "This is the id: " . $id ;
+    }
+
     $connection= mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38"); // this info can be consolidated
 
     if (!$connection) {
@@ -62,7 +67,7 @@ else
         $content = mysqli_real_escape_string($connection, $_POST["content"]);
         $title = mysqli_real_escape_string($connection, $_POST["title"]);
         //create needed variables that are not submitted by the users
-        $case_id = mysqli_real_escape_string($connection, 13); //hard coded until we can work out how we want to handle detecting case
+        $case_id = mysqli_real_escape_string($connection, $id); 
 
         date_default_timezone_get(); //set time to the zone the server is on
         $date_time = mysqli_real_escape_string($connection, date("Y-m-d H:i:s"));

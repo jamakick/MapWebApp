@@ -82,6 +82,8 @@
 
 		echo "</table>";
 
+		echo "<p><a href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
+
 	?>
 
 
