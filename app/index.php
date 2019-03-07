@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -19,16 +22,24 @@
 
 		<nav role="navigation">
 					<div class="logo">
-					<a href="index.html"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
 					<div class="menuLinks">
 						<ul>
-							<li><a href="#">Search</a></li>
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Subscriptions</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Profile</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a></li>
 						</ul>
+
+		<p>
+		<?php
+		if (isset($_SESSION['name'])) {
+			echo $_SESSION['name'];
+		 }
+		 ?>
+	 	</p>
 					</div>
 		</nav>
+
 
 		<div id="map"></div>
 
