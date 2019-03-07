@@ -50,9 +50,8 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
-		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;"); #dynamically generated
-		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;"); #dynamically generated
-
+		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
+		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
 
@@ -66,9 +65,6 @@
 			//	echo "Confirmed user ID";
 			}
 		}
-
-		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
-		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
 
 
 		if (mysqli_num_rows($threadQuery) > 0) {
@@ -121,7 +117,8 @@
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
-					echo "<td><a href='deleteThread.php?id=$id'>Delete Reply</a></td>";
+					echo "<td><a href='deleteThread.php?id=$replyId'>Delete Reply</a></td>";
+					echo "<td><a href='editReplyForm.php?id=$replyId'> Edit Reply</a></td>";
 				}
 				echo "</tr>";
 
@@ -131,6 +128,8 @@
     }
 
 		echo "</table>";
+		mysqli_free_result($replyQuery);
+		mysqli_free_result($threadQuery);
 
  ?>
 		</div>
