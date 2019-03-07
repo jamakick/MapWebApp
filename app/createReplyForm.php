@@ -66,10 +66,8 @@
 		endif;
 
 
-?>
-
-
-	<form action="createReplyProcess.php" method="POST">
+	echo "<form action='createReplyProcess.php?id=$id' method='POST'>";
+	?>
 	<div>
 	<div class="createReplyForm">Reply Content: <textarea name="content" required>Type your reply here:</textarea></div>
 

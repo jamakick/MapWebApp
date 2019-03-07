@@ -21,7 +21,10 @@ else
     //the user is signed in
     $username = $_SESSION["username"];
 
-
+    if (isset($_GET["id"])) {
+      $id = $_GET["id"];
+    //  echo "This is the id: " . $id ;
+    }
 
     //start the transaction -- abundance of caution
     $query  = "BEGIN WORK;";
@@ -58,18 +61,30 @@ else
 
         }
 
+        //lookup case in based on thread
+        $case_lookup = "SELECT * FROM Threads WHERE thread_id = '$id';";
+        $case_result = mysqli_query($connection, $case_lookup);
+        if (!$case_result) {
+          echo "An error occurred when locating the case. Please try again. This is the error: " . mysqli_error($connection);
+        }
+        else {
+          while ($record = mysqli_fetch_assoc($case_result)) {
+            $case_id = $record["thread_case"];
+          }
+        }
+
+      //  echo "Case ID is : " . $case_id;
+
 
 
         //create needed variables given by user
         $content = mysqli_real_escape_string($connection, $_POST["content"]);
-        //$title = mysqli_real_escape_string($connection, $_POST["title"]);
-        //create needed variables that are not submitted by the users
-        $case_id = mysqli_real_escape_string($connection, 13); //hard coded until we can work out how we want to handle detecting case
 
         date_default_timezone_get(); //set time to the zone the server is on
         $date_time = mysqli_real_escape_string($connection, date("Y-m-d H:i:s"));
 
-        $thread_id = mysqli_real_escape_string($connection, 13); //hard coded until integration
+        $thread_id = mysqli_real_escape_string($connection, $id);
+        echo "the thread ID is: " . $thread_id;
 
 
         //insert the thread
@@ -87,11 +102,14 @@ else
 
         else
         {
+            $update_replies = "UPDATE Threads SET thread_replies = thread_replies + 1 WHERE thread_id = $thread_id;";
+            $update_result = mysqli_query($update_replies);
+
             $sql = "COMMIT;";
             $result = mysqli_query($connection, $sql);
 
             //the query succeeded!
-            echo 'You have successfully created your new reply. Check out the <a href="forum.php">discussion</a>.'; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            echo "You have successfully created your new reply. Check out the <a href='caseinfo.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
         }
     }
 }
