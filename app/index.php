@@ -135,20 +135,40 @@
 
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZEJyvEqCczHBAYFHU28pUA1AMHYgOFg&callback=initMap" aysnc defer></script>
 
-		<div class="sideView">
-		<h1> SIDE PANEL FOR SEARCH RESULTS/MAP INFORMATION</h1>
+		<div id="sideView">
 
-		<p>
+		<div id="searchBar">
 
 		<form action="search/search.cgi">
 			<input type="text" name ="terms">
 			<input type="submit" value="Search">
 		</form>
 
-		</p>
 		</div>
 
- 
+		<div id="results">
+
+		<script>
+
+		var output = "";
+
+		var results = document.getElementById("results");
+
+		for (var i = 0; i < cases.length; i++) {
+			output += "<p>";
+			output += cases[i].toString();
+			output += "</p>";
+			output += "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a><hr>";
+		}
+
+		results.innerHTML = output;
+
+		</script>
+
+		</div>
+
+		</div>
+
 		<footer>
 		<div class="footerDiv">
 		<p>footer</p>
