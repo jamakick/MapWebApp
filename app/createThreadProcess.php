@@ -67,7 +67,7 @@ else
         $content = mysqli_real_escape_string($connection, $_POST["content"]);
         $title = mysqli_real_escape_string($connection, $_POST["title"]);
         //create needed variables that are not submitted by the users
-        $case_id = mysqli_real_escape_string($connection, $id); 
+        $case_id = mysqli_real_escape_string($connection, $id);
 
         date_default_timezone_get(); //set time to the zone the server is on
         $date_time = mysqli_real_escape_string($connection, date("Y-m-d H:i:s"));
@@ -92,7 +92,7 @@ else
             $result = mysqli_query($connection, $sql);
 
             //the query succeeded!
-            echo 'You have successfully created your new thread. Check out the <a href="forum.php">discussion</a>.'; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            echo "You have successfully created your new thread. Check out the <a href='../caseinfo.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
         }
     }
 }
