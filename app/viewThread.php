@@ -121,7 +121,7 @@
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
-					echo "<td><a href='deleteThread.php?id=$id'>Delete Reply</a></td>";
+					echo "<td><a href='deleteReply.php?id=$replyId'>Delete Reply</a></td>";
 				}
 				echo "</tr>";
 

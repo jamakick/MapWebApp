@@ -39,7 +39,7 @@
 
     if (isset($_GET["id"])) {
       $id = $_GET["id"];
-      //echo "This is the id: " . $id ;
+      //here $id refers to the id of the reply
     }
 
     $connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
