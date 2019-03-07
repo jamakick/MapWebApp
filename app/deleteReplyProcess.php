@@ -47,9 +47,11 @@
       $num_children = $record["reply_replies"];
     }
 
+
     //if thread has children, replace content with [deleted]
-    if($num_children >= 1) {
+    if($num_children > 0) {
       $updateQuery = mysqli_query($connection, "UPDATE Replies SET reply_content = '[deleted]' WHERE reply_id = $id;");
+
 
       //did update work?
 
@@ -71,7 +73,7 @@
     }
 
     else {
-      $deleteQuery = mysqli_query($connection, "DELETE FROM Replies WHERE reply_id = $id;");
+      $deleteQuery = mysqli_query($connection, "DELETE FROM Replies WHERE reply_id = $id;");;
 
       //did delete work?
 
