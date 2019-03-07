@@ -16,6 +16,7 @@
 	</head>
 
 	<body>
+		<h2>Case Information</h2>
 
 		<?php
 
@@ -48,8 +49,42 @@
 			}
 
 		}
+		/////////////////////////// END JAKE'S STUFF ///////////////////////
 
-		 ?>
+		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_case = $id");
+		$caseQuery = mysqli_query($connection, "Select victim_first, victim_last from cases where id = $id");
+
+		if (mysqli_num_rows($caseQuery) > 0) {
+			while ($record = mysqli_fetch_assoc($caseQuery)) {
+				echo "<h2>Case Discussion: " . $record["victim_first"] . " " . $record["victim_last"] . "</h2>";
+			}
+		}
+
+		echo "<table border=1px>";
+		echo "<tr>";
+		echo "<th>Thread Title</th>";
+		echo "<th>Date</th>";
+		echo "<th>Replies</th>";
+		echo "<th>Votes</th>";
+		echo "</tr>";
+
+		if (mysqli_num_rows($threadQuery) > 0) {
+			while ($row = mysqli_fetch_assoc($threadQuery)) {
+				echo "<tr>";
+				echo "<td><a href='forum/viewThread.php?id=" . $row["thread_id"] . "'>" . $row["thread_title"] . "</a></td>";
+				echo "<td>" . $row["thread_date"] . "</td>";
+				echo "<td>" . $row["thread_replies"] . "</td>";
+				echo "<td>" . $row["thread_votes"]  . "</td>";
+				echo "</tr>";
+
+			}
+		}
+
+		echo "</table>";
+
+		echo "<p><a href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
+
+	?>
 
 
 		 <a href="#"><p> Subscribe to case </p></a>

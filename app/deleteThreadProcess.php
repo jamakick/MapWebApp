@@ -40,6 +40,18 @@
         mysqli_free_result($query);
     }
 
+    //lookup case in based on thread
+    $case_lookup = "SELECT * FROM Threads WHERE thread_id = '$id';";
+    $case_result = mysqli_query($connection, $case_lookup);
+    if (!$case_result) {
+      echo "An error occurred when locating the case. Please try again. This is the error: " . mysqli_error($connection);
+    }
+    else {
+      while ($record = mysqli_fetch_assoc($case_result)) {
+        $case_id = $record["thread_case"];
+      }
+    }
+
     //check: does thread have children?
     $childQuery = mysqli_query($connection, "SELECT * FROM Replies WHERE reply_thread = $id;");
 
@@ -86,7 +98,7 @@
           $result = mysqli_query($connection, $sql);
 
           //the query succeeded!
-          echo 'You have successfully deleted your thread. Check out the <a href="forum.php">discussion</a>.'; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+          echo "You have successfully deleted your thread. Check out the <a href='../caseinfo.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
       }
 
     }
