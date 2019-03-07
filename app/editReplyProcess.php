@@ -22,7 +22,7 @@ else
     $username = $_SESSION["username"];
 
     if (isset($_GET["id"])) {
-      $id = $_GET["id"];
+      $id = mysqli_real_escape_string($connection, $_GET["id"]);
       //echo "This is the id: " . $id ;
     }
 
@@ -42,16 +42,21 @@ else
 
         //create needed variables given by user
         $content = mysqli_real_escape_string($connection, $_POST["content"]);
+      //  echo $content;
 
 
         date_default_timezone_get(); //set time to the zone the server is on
         $date_time = mysqli_real_escape_string($connection, date("Y-m-d H:i:s"));
 
+      //  echo $date_time;
+
 
         //insert the thread
         $sql = "UPDATE Replies SET reply_content = '$content', reply_date = '$date_time' WHERE reply_id = $id;";
+      //  echo $sql;
 
         $result = mysqli_query($connection, $sql);
+
         if(!$result)
         {
             //something went wrong, display the error
@@ -64,6 +69,7 @@ else
         {
             $sql = "COMMIT;";
             $result = mysqli_query($connection, $sql);
+          //  echo "Committed work";
 
             //the query succeeded!
             echo 'You have successfully edited your reply. Check out the <a href="forum.php">discussion</a>.'; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';

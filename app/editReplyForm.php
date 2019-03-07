@@ -63,14 +63,16 @@
       $replyText = $record["reply_content"];
     }
 
-    if (!$record) {
-      die("There was a problem retrieving your reply: " . mysqli_error($connection));
+		if (!mysqli_num_rows($replyLookup)) {
+      echo "There was a problem retrieving your reply: " . mysqli_error($connection);
     }
-    echo "<form action='createReplyProcess.php' method='POST'>";
+
+    echo "<form action='editReplyProcess.php?id=$id' method='POST'>";
+		echo "The reply id should be: " . $id . " and the parent id should be " . $parentId;
     echo "<div class='editReplyForm'>Reply Content: <textarea name='content' required>$replyText</textarea></div>";
   ?>
-    <div class="createReplyForm"><input type="submit" value="Submit"></div>
-    <div class="createReplyForm"><input type="reset"></div>
+    <div class="editReplyForm"><input type="submit" value="Submit"></div>
+    <div class="editReplyForm"><input type="reset"></div>
   </form>
 
 </body>
