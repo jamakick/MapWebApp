@@ -51,7 +51,7 @@
 		}
 
 		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
-		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
+		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
 
@@ -79,8 +79,6 @@
 				}
 			}
 		}
-
-
 
 
 		if (mysqli_num_rows($replyQuery) > 0) {
@@ -117,7 +115,7 @@
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
-					echo "<td><a href='deleteThread.php?id=$replyId'>Delete Reply</a></td>";
+					echo "<td><a href='deleteReply.php?id=$replyId'>Delete Reply</a></td>";
 					echo "<td><a href='editReplyForm.php?id=$replyId'> Edit Reply</a></td>";
 				}
 				echo "</tr>";

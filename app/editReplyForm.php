@@ -68,7 +68,7 @@
     }
 
     echo "<form action='editReplyProcess.php?id=$id' method='POST'>";
-		echo "The reply id should be: " . $id . " and the parent id should be " . $parentId;
+	//	echo "The reply id should be: " . $id . " and the parent id should be " . $parentId;
     echo "<div class='editReplyForm'>Reply Content: <textarea name='content' required>$replyText</textarea></div>";
   ?>
     <div class="editReplyForm"><input type="submit" value="Submit"></div>

@@ -74,8 +74,8 @@ else
 
 
         //insert the thread
-        $sql = "INSERT INTO Threads(thread_content, thread_title, thread_case, thread_date, thread_by) VALUES ('$content', '$title', $case_id, '$date_time', '$user_id');";
-      //  echo $sql;
+        $sql = "INSERT INTO Threads(thread_content, thread_title, thread_case, thread_date, thread_by) VALUES ('$content', '$title', '$case_id', '$date_time', '$user_id');";
+        //echo $sql;
 
         $result = mysqli_query($connection, $sql);
         if(!$result)
