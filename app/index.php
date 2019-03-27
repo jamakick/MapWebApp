@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -19,16 +22,35 @@
 
 		<nav role="navigation">
 					<div class="logo">
-					<a href="index.html"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
 					<div class="menuLinks">
 						<ul>
-							<li><a href="#">Search</a></li>
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Subscriptions</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a></li>
+							<li>
+						<?php
+						if (isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+						}
+
+						else if (!isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+						}
+						?>
+							</li>
 						</ul>
+
+		<p>
+		<?php
+		if (isset($_SESSION['name'])) {
+			echo $_SESSION['name'];
+		 }
+		 ?>
+	 	</p>
 					</div>
 		</nav>
+
 
 		<div id="map"></div>
 
@@ -74,6 +96,24 @@
 
 		var cases = <?php echo json_encode($allCases) ?>;
 
+		if (window.location.search) {
+
+		var searchIDs = window.location.search.split("=")[1].split(",");
+
+		console.log(searchIDs);
+
+		var newCases = new Array();
+
+		for (var i = 0; i < cases.length; i++) {
+			if (searchIDs.includes(cases[i][0])) {
+				newCases.push(cases[i])
+			}
+		}
+
+		cases = newCases;
+
+		}
+
 		var map;
 
 		var markers = []
@@ -117,10 +157,39 @@
 
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZEJyvEqCczHBAYFHU28pUA1AMHYgOFg&callback=initMap" aysnc defer></script>
 
-		<div class="sideView">
-		<h1> SIDE PANEL FOR SEARCH RESULTS/MAP INFORMATION</h1>
+		<div id="sideView">
+
+		<div id="searchBar">
+
+		<form action="search/search.cgi">
+			<input type="text" name ="terms">
+			<input type="submit" value="Search">
+		</form>
+
 		</div>
 
+		<div id="results">
+
+		<script>
+
+		var output = "";
+
+		var results = document.getElementById("results");
+
+		for (var i = 0; i < cases.length; i++) {
+			output += "<p>";
+			output += cases[i].toString();
+			output += "</p>";
+			output += "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a><hr>";
+		}
+
+		results.innerHTML = output;
+
+		</script>
+
+		</div>
+
+		</div>
 
 		<footer>
 		<div class="footerDiv">

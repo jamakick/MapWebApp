@@ -16,6 +16,19 @@
 	</head>
 
 	<body>
+
+		<nav role="navigation">
+					<div class="logo">
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+					</div>
+					<div class="menuLinks">
+						<ul>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Profile</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a></li>
+						</ul>
+					</div>
+		</nav>
+
 		<h2>Case Information</h2>
 
 		<?php
@@ -87,7 +100,9 @@
 	?>
 
 
-		 <a href="#"><p> Subscribe to case </p></a>
+		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p> Subscribe to case </p></a>
+
+		 <a href="index.php">Return to Home</a>
 
 
 	</body>

@@ -26,6 +26,17 @@ session_start();
 	</head>
 
 	<body>
+		<nav role="navigation">
+					<div class="logo">
+					<a href="../index.php"><h1>Cold Case Connection</h1></a>
+					</div>
+					<div class="menuLinks">
+						<ul>
+							<li><a href="../users/login.php">Profile</a></li>
+							<li><a href="#">Subscriptions</a></li>
+						</ul>
+					</div>
+		</nav>
 
 	<h1 id ="register"> Log In </h1>
 
