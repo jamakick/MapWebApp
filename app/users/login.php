@@ -28,12 +28,12 @@ session_start();
 	<body>
 		<nav role="navigation">
 					<div class="logo">
-					<a href="../index.php"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
 					<div class="menuLinks">
 						<ul>
-							<li><a href="../users/login.php">Profile</a></li>
-							<li><a href="#">Subscriptions</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a></li>
 						</ul>
 					</div>
 		</nav>

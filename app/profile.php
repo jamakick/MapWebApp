@@ -19,14 +19,32 @@
 
 		<nav role="navigation">
 					<div class="logo">
-					<a href="index.html"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
 					<div class="menuLinks">
 						<ul>
-							<li><a href="#">Search</a></li>
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Subscriptions</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a></li>
+							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a></li>
+							<li>
+						<?php
+						if (isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+						}
+
+						else if (!isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+						}
+						?>
+							</li>
 						</ul>
+
+		<p>
+		<?php
+		if (isset($_SESSION['name'])) {
+			echo $_SESSION['name'];
+		 }
+		 ?>
+		</p>
 					</div>
 		</nav>
 
