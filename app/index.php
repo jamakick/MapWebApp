@@ -112,11 +112,18 @@ session_start();
 
 		cases = newCases;
 
+
+
 		}
 
 		var map;
 
 		var markers = []
+
+		function zoomToMarker(marker) {
+			map.setZoom(10);
+			map.setCenter(marker.getPosition());
+		}
 
 		function createMarker(location, title, infoString) {
 			var marker = new google.maps.Marker({
@@ -125,15 +132,11 @@ session_start();
 				title: title
 			});
 
-			var infowindow = new google.maps.InfoWindow({
-				content: infoString,
-				maxWidth: 600
-			});
-
 			markers.push(marker);
 
-			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.open(map, marker);
+			marker.addListener('click', function() {
+				map.setZoom(10);
+				map.setCenter(marker.getPosition());
 			});
 		}
 
@@ -147,7 +150,7 @@ session_start();
 			var markerString = String(cases[i]) + "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a>";
 			var position = {lat: parseFloat(cases[i][12]), lng: parseFloat(cases[i][13])};
 
-			createMarker(position, "testTitle", markerString);
+			createMarker(position, "Click to Zoom", markerString);
 
 			}
 
