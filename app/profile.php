@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -50,6 +53,50 @@
 
 		<div class="profile">
 		<h1>User Profile information</h1>
+		</div>
+
+		<div class="content">
+
+			<p id="info"></p>
+
+			<?php  $connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
+
+			if (!$connection) {
+				die("Failed to connect to MySQL: " . mysqli_connect_error() );
+			}
+
+			$user = $_SESSION['username'];
+
+			$userQuery = mysqli_query($connection, "Select * from users where username = '$user'");
+
+			if (mysqli_num_rows($userQuery) > 0) {
+				while ($row = mysqli_fetch_assoc($userQuery)) {
+
+					$oneCase = array(utf8_encode($row["user_id"]),
+								utf8_encode($row["user_email"]),
+								utf8_encode($row["user_first"]),
+								utf8_encode($row["user_last"]),
+								utf8_encode($row["username"]),
+								utf8_encode($row["browsing_history"]));
+
+				}
+				mysqli_free_result($userQuery);
+
+			}
+			mysqli_close($connection);
+
+			?>
+
+			<script>
+
+			var info = <?php echo json_encode($oneCase) ?>;
+
+			var infoHolder = document.getElementById("info");
+
+			infoHolder.innerHTML = info;
+
+			</script>
+
 		</div>
 
 
