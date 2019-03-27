@@ -57,6 +57,12 @@ session_start();
 
 		<div class="content">
 
+			<?php
+			if (!isset($_SESSION['username'])) {
+				echo '<p>You are not currently logged in to view your profile.</p>';
+			}
+			?>
+
 			<p id="info"></p>
 
 			<?php  $connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
