@@ -84,7 +84,7 @@ else
         $date_time = mysqli_real_escape_string($connection, date("Y-m-d H:i:s"));
 
         $thread_id = mysqli_real_escape_string($connection, $id);
-        echo "the thread ID is: " . $thread_id;
+        //echo "the thread ID is: " . $thread_id;
 
 
         //insert the thread
@@ -109,7 +109,7 @@ else
             $result = mysqli_query($connection, $sql);
 
             //the query succeeded!
-            echo "You have successfully created your new reply. Check out the <a href='caseinfo.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            echo "You have successfully created your new reply. Check out the <a href='../viewThread.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
         }
     }
 }

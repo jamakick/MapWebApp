@@ -26,7 +26,7 @@
 						<ul>
 							<li><a href="#">Search</a></li>
 							<li><a href="#">Profile</a></li>
-							<li><a href="#">Subscriptions</a></li>
+							<li><a href="../subscription.php">Subscriptions</a></li>
 						</ul>
 					</div>
 		</nav>
@@ -51,12 +51,8 @@
 		}
 
 		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
-		$caseQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
-		if (mysqli_num_rows($caseQuery) > 0) {
-			while ($record = mysqli_fetch_assoc($caseQuery)) {
+		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
 
-			}
-		}
 
 		$userQuery = mysqli_query($connection, "Select user_id from users where username = '$username';");
 		if (mysqli_num_rows($userQuery) > 0) {
@@ -71,7 +67,7 @@
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
-        echo "<p>Votes:" . $record["votes"] . " <a href='#'>Upvote</a> <a href='#'>Downvote</a></p>";
+        echo "<p>Votes: " . $record["thread_votes"] . " <a href='upvote.php?id=$id'>Upvote</a> <a href='downvote.php?id=$id'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
@@ -79,8 +75,6 @@
 				}
 			}
 		}
-
-
 
 
 		if (mysqli_num_rows($replyQuery) > 0) {
@@ -115,10 +109,12 @@
 				echo "<td>" . $row["reply_replies"] . "</td>";
 				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
+				echo "<td><a href='upvote.php?rid=$replyId'>Upvote</a></td>";
+				echo "<td><a href='downvote.php?rid=$replyId'>Downvote</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
-					echo "<td><a href='deleteThread.php?id=$replyId'>Delete Reply</a></td>";
-					echo "<td><a href='editReplyForm.php?id=$replyId'> Edit Reply</a></td>";
+					echo "<td><a href='deleteReply.php?id=$replyId'>Delete</a></td>";
+					echo "<td><a href='editReplyForm.php?id=$replyId'>Edit</a></td>";
 				}
 				echo "</tr>";
 
