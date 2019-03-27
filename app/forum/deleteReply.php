@@ -53,7 +53,7 @@
     echo "<h2>Delete Reply?</h2>";
     if (mysqli_num_rows($replyQuery) > 0) {
       while ($record = mysqli_fetch_assoc($replyQuery)) {
-        echo "<p>Votes: <span id = 'votes'>" . $record["reply_votes"] . "</span> <a href='upvote.php?rid=$id' onclick = 'upvote()'>Upvote</a> <a href='downvote.php?rid=$id'>Downvote</a></p>";
+        echo "<p>Votes: <span id = 'votes'>" . $record["reply_votes"] . "</span> <a href='upvote.php?rid=$id'>Upvote</a> <a href='downvote.php?rid=$id'>Downvote</a></p>";
         echo "<p>" . $record["reply_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				$thread_id = $record["reply_thread"];

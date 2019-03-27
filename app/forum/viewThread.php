@@ -67,7 +67,7 @@
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
-        echo "<p>Votes:" . $record["thread_votes"] . " <a href='upvote.php?id=$id'>Upvote</a> <a href='downvote.php?id=$id'>Downvote</a></p>";
+        echo "<p>Votes: " . $record["thread_votes"] . " <a href='upvote.php?id=$id'>Upvote</a> <a href='downvote.php?id=$id'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
@@ -109,6 +109,8 @@
 				echo "<td>" . $row["reply_replies"] . "</td>";
 				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
+				echo "<td><a href='upvote.php?rid=$replyId'>Upvote</a></td>";
+				echo "<td><a href='downvote.php?rid=$replyId'>Downvote</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
 					echo "<td><a href='deleteReply.php?id=$replyId'>Delete</a></td>";

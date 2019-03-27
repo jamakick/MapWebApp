@@ -1,19 +1,19 @@
 <?php
-  //upvote.php
+  //downvote.php
   session_start();
 
   $username = $_SESSION['username'];
 
   if (isset($_GET["id"])){
     $id = $_GET["id"];
-    $sql = "UPDATE Threads SET thread_votes = thread_votes + 1 WHERE thread_id = $id ;" ;
+    $sql = "UPDATE Threads SET thread_votes = thread_votes - 1 WHERE thread_id = $id ;" ;
 }
   else {
-    $id = $_GET["rid"];
-    $sql = "UPDATE Replies SET reply_votes =  reply_votes + 1 WHERE reply_id = $rid ;" ;
+    $rid = $_GET["rid"];
+    $sql = "UPDATE Replies SET reply_votes =  reply_votes - 1 WHERE reply_id = $rid ;" ;
 }
 
-if ($upvote == False) {
+if ($downvote == False) {
 
   $connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
 
@@ -23,11 +23,11 @@ if ($upvote == False) {
 
 
 
-  $upvoteQuery = mysqli_query($connection, $sql);
+  $downvoteQuery = mysqli_query($connection, $sql);
 
-  //did upvote work?
+  //did downvote work?
 
-  if(!$upvoteQuery) {
+  if(!$downvoteQuery) {
       //something went wrong, display the error
       echo 'An error occured while upvoting. Please try again later. This is the error:' . mysqli_error($connection);
       $sql = "ROLLBACK;";
@@ -39,9 +39,17 @@ if ($upvote == False) {
       $sql = "COMMIT;";
       $result = mysqli_query($connection, $sql);
 
-      //set variable to show that user has already upvoted
+      if ($rid) {
+        $threadQuery = mysqli_query($connection, "SELECT reply_thread FROM Replies WHERE reply_id = $rid ; ");
 
-      $upvote = True;
+        while ($record = mysqli_fetch_assoc($threadQuery)) {
+          $id = $record["reply_thread"];
+        }
+    }
+
+      //set variable to show that user has already downvoted
+
+      $downvote = True;
 
       header("Location: viewThread.php?id=$id");
   }
