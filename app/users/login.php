@@ -19,6 +19,7 @@ session_start();
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/styles2.css">
 
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -28,24 +29,42 @@ session_start();
 	<body>
 		<nav role="navigation">
 					<div class="logo">
-					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~marcmeng/app/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
-					<div class="menuLinks">
-						<ul>
-							<li><a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a></li>
-							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a></li>
-						</ul>
+					<div class="row">
+						<div class="seven columns" id="searchBar">
+							<form action="search/search.cgi">
+								<input class="eight columns" type="text" name ="terms">
+								<input class="three columns button-primary" type="submit" value="Search">
+							</form>
+						</div>
+						<div class="one column">
+							<a href="http://cgi.soic.indiana.edu/~marcmeng/app/profile.php">Profile</a>
+						</div>
+						<div class="two columns">
+							<a href="http://cgi.soic.indiana.edu/~marcmeng/app/subscription.php ">Subscriptions</a>
+						</div>
+
+		<p>
+		<?php
+		if (isset($_SESSION['name'])) {
+			echo $_SESSION['name'];
+		 }
+		 ?>
+	 	</p>
 					</div>
 		</nav>
 
 	<h1 id ="register"> Log In </h1>
 
 	<form action="loginProcess.php" method="post">
-	<div>
-	<div class="registerForm">Username: <input type="text" name="username" required></div>
-	<div class="registerForm">Password: <input type="password" name="password" required></div>
-
-	<div class="registerForm"><input type="submit" value="Submit"></div>
+	<div class="row">
+	<div class="three columns"><label for="Username">Username</label><input class="u-full-width" type="text" name="username" required></div>
+	</div>
+	<div class="row">
+	<div class="three columns"><label for="Password">Password</label><input class="u-full-width" type="password" name="password" required></div>
+	</div>
+	<div><input type="submit" value="Submit"></div>
 
 	<div class="response">
 
@@ -62,8 +81,7 @@ session_start();
 	 ?>
 
 	</div>
-
-	<div class="registerForm"><p>Need to Register? Click <a href="registerForm.php">Here</a></p></div>
+	<div><p>Need to Register? Click <a href="registerForm.php">Here</a></p></div>
 	</div>
 
 	</form>

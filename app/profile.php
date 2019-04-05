@@ -11,6 +11,7 @@ session_start();
 
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/styles2.css">
 
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -22,24 +23,29 @@ session_start();
 
 		<nav role="navigation">
 					<div class="logo">
-					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~marcmeng/app/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
-					<div class="menuLinks">
-						<ul>
-							<li><a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a></li>
-							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a></li>
-							<li>
+					<div class="row">
+						<div class="seven columns" id="searchBar">
+							<form action="search/search.cgi">
+								<input class="eight columns" type="text" name ="terms">
+								<input class="three columns button-primary" type="submit" value="Search">
+							</form>
+						</div>
+						<div class="two columns">
+							<a href="http://cgi.soic.indiana.edu/~marcmeng/app/subscription.php ">Subscriptions</a>
+						</div>
+						<div class="two columns">
 						<?php
 						if (isset($_SESSION['username'])) {
-							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+							echo '<a href="http://cgi.soic.indiana.edu/~marcmeng/app/users/logout.php">Log Out</a>';
 						}
 
 						else if (!isset($_SESSION['username'])) {
-							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+							echo '<a href="http://cgi.soic.indiana.edu/~marcmeng/app/users/login.php">Log In</a>';
 						}
 						?>
-							</li>
-						</ul>
+						</div>
 
 		<p>
 		<?php
@@ -47,7 +53,7 @@ session_start();
 			echo $_SESSION['name'];
 		 }
 		 ?>
-		</p>
+	 	</p>
 					</div>
 		</nav>
 

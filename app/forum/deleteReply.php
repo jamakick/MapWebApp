@@ -26,12 +26,13 @@
 					<ul>
 						<li><a href="#">Search</a></li>
 						<li><a href="#">Profile</a></li>
-						<li><a href="#">Subscriptions</a></li>
+						<li><a href="../subscription.php">Subscriptions</a></li>
 					</ul>
 				</div>
 	</nav>
 
 	<div class="forum">
+
     <?php
     session_start();
 
@@ -52,10 +53,19 @@
     echo "<h2>Delete Reply?</h2>";
     if (mysqli_num_rows($replyQuery) > 0) {
       while ($record = mysqli_fetch_assoc($replyQuery)) {
-        echo "<p>Votes:" . $record["votes"] . " <a href='#'>Upvote</a> <a href='#'>Downvote</a></p>";
+        echo "<p>Votes: <span id = 'votes'>" . $record["reply_votes"] . "</span> <a href='upvote.php?rid=$id'>Upvote</a> <a href='downvote.php?rid=$id'>Downvote</a></p>";
         echo "<p>" . $record["reply_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
+				$thread_id = $record["reply_thread"];
       }
     }
     echo "<a href='deleteReplyProcess.php?id=$id'>Yes, Delete</a><br>";
-    echo "<a href='viewThread.php?id=$id'>No, go back!</a>";
+    echo "<a href='viewThread.php?id=$thread_id'>No, go back!</a>";
+
+		?>
+	</div>
+
+
+</body>
+
+</html>

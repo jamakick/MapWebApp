@@ -17,17 +17,21 @@
 	</head>
 
 	<body>
+	<?php
+	if (isset($_GET["id"])) {
+		$id = $_GET["id"];
+	}
+	
+	echo "<h1 id ='createThread'>Create a New Forum Thread</h1>";
 
-	<h1 id ="createThread">Create a New Forum Thread</h1>
+	echo "<form action='createThreadProcess.php?id=$id' method='post'>";
+	echo "<div>";
+	echo "<div class='createThreadForm'>Thread Title: <input type='text' name='title' required></div>";
+	echo "<div class='createThreadForm'>Thread Content: <textarea name='content' required>Enter text here...</textarea></div>";
 
-	<form action="createThreadProcess.php" method="post">
-	<div>
-	<div class="createThreadForm">Thread Title: <input type="text" name="title" required></div>
-	<div class="createThreadForm">Thread Content: <textarea name="content" required>Enter text here...</textarea></div>
+	echo "<div class='response'>";
 
-	<div class="response">
 
-		<?php
 		if($_GET) {
 			$response = $_GET['response'];
 			if (strcmp($response, "title") == 0) {
