@@ -194,11 +194,11 @@ session_start();
 
 		</div>
 
-		<footer>
+		<!-- <footer>
 		<div class="footerDiv">
 		<p>footer</p>
 		</div>
-		</footer>
+		</footer> -->
 
 	</body>
 </html>
