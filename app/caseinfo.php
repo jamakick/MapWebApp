@@ -127,14 +127,12 @@
 
 		echo "</table>";
 
-		echo "<p><a href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
-
+		echo "<p><a class='button' href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
 	?>
 
+		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p class="button"> Subscribe to case </p></a>
 
-		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p> Subscribe to case </p></a>
-
-		 <a href="index.php">Return to Home</a>
+		 <a class="button" href="index.php">Return to Home</a>
 
 
 	</body>

@@ -331,6 +331,12 @@ hr {
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+@media (max-width: 480px) {
+  body {
+    max-width: 320px;
+  }
+}
+
 /* Larger than mobile */
 @media (min-width: 400px) {}
 
