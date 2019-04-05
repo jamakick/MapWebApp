@@ -120,11 +120,6 @@ session_start();
 
 		var markers = []
 
-		function zoomToMarker(marker) {
-			map.setZoom(10);
-			map.setCenter(marker.getPosition());
-		}
-
 		function createMarker(location, title, infoString) {
 			var marker = new google.maps.Marker({
 				position: location,
@@ -137,6 +132,29 @@ session_start();
 			marker.addListener('click', function() {
 				map.setZoom(10);
 				map.setCenter(marker.getPosition());
+
+				var collapse = document.getElementsByClassName("collapse");
+				var i;
+
+				for (i = 0; i < collapse.length; i++) {
+					var content = collapse[i].nextElementSibling;
+					content.style.display = "none";
+					collapse[i].classList.remove("active");
+				}
+
+				var id = markers.indexOf(marker);
+
+				content = collapse[id].nextElementSibling;
+
+				if (content.style.display == "block") {
+					content.style.display = "none";
+				}
+				else {
+					content.style.display = "block";
+				}
+
+				var topPos = content.offsetTop - 400;
+				document.getElementById("sideView").scrollTop = topPos;
 			});
 		}
 
@@ -173,6 +191,10 @@ session_start();
 
 		<div id="results">
 
+		</div>
+
+		</div>
+
 		<script>
 
 		var output = "";
@@ -180,19 +202,48 @@ session_start();
 		var results = document.getElementById("results");
 
 		for (var i = 0; i < cases.length; i++) {
-			output += "<p>";
-			output += cases[i].toString();
+			output += '<button class="collapse">';
+			output += cases[i][1] + " " + cases[i][2];
+			output += " - " + cases[i][6] + ", " + cases[i][7];
+			output += '</button>';
+			output += '<div class="sideResult" data-id="' + cases[i][0] + '"><p>';
+			output += "ID: " + cases[i][0];
+			output += "<br>Name: " + cases[i][1] + " " + cases[i][2];
+			output += "<br>Gender: " + cases[i][3];
+			output += "<br>Nationality: " + cases[i][4];
 			output += "</p>";
-			output += "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a><hr>";
+			output += "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a></div>";
 		}
 
 		results.innerHTML = output;
 
+
+		var collapse = document.getElementsByClassName("collapse");
+		var i;
+
+		for (i = 0; i < collapse.length; i++) {
+			collapse[i].addEventListener("click", function() {
+			for (i = 0; i < collapse.length; i++) {
+				var content = collapse[i].nextElementSibling;
+				content.style.display = "none";
+				collapse[i].classList.remove("active");
+			}
+			this.classList.toggle("active");
+			var resultContent = this.nextElementSibling;
+			var id = resultContent.getAttribute("data-id");
+			map.setZoom(10);
+			map.setCenter(markers[id - 1].getPosition());
+			if (resultContent.style.display == "block") {
+				resultContent.style.display = "none";
+			}
+			else {
+				resultContent.style.display = "block";
+			}
+
+		});
+	}
+
 		</script>
-
-		</div>
-
-		</div>
 
 		<!-- <footer>
 		<div class="footerDiv">
