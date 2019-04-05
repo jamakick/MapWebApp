@@ -84,8 +84,7 @@ if (isset($_SESSION['username'])) {
 				mysqli_query($connection, "Update users set subscription = '$subs' where username = '$username'");
 				mysqli_commit($connection);
 
-				echo "Case removed from subscriptions";
-				echo "<a href='http://cgi.soic.indiana.edu/~team38/subscription.php'>Return to Subscriptions</a>";
+				header("Location: ../subscription.php");
 
 
 			}
