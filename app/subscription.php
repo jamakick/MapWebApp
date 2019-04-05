@@ -82,7 +82,7 @@ session_start();
 	else if (!isset($_SESSION['username'])) {
 		echo "You are not currently logged in to look at your subscribed cases.";
 		$subs = "";
-		echo "<a href='http://cgi.soic.indiana.edu/~team38/index.php'>Return to Home</a>";
+		echo "<a href='http://cgi.soic.indiana.edu/~team38/users/login.php'>Login</a>";
 	}
 
 	mysqli_free_result($subQuery);

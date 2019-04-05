@@ -35,7 +35,7 @@ session_start();
 						}
 
 						else if (!isset($_SESSION['username'])) {
-							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+							header("Location: ../subscription.php");
 						}
 						?>
 							</li>
