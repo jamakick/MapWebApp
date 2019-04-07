@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (isset($_SESSION['username'])) {
+	header("Location: ../index.php");
+};
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -21,53 +29,45 @@
 
 		<nav role="navigation">
 					<div class="logo">
-					<a href="http://cgi.soic.indiana.edu/~marcmeng/app/index.php"><h1>Cold Case Connection</h1></a>
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
 					<div class="row">
-						<div class="seven columns" id="searchBar">
+						<div class="six columns" id="searchBar">
 							<form action="search/search.cgi">
-								<input class="eight columns" type="text" name ="terms">
-								<input class="three columns button-primary" type="submit" value="Search">
+								<input class="seven columns" type="text" name ="terms">
+								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
 						</div>
 						<div class="one column">
-							<a href="http://cgi.soic.indiana.edu/~marcmeng/app/profile.php">Profile</a>
+							<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
 						</div>
 						<div class="two columns">
-							<a href="http://cgi.soic.indiana.edu/~marcmeng/app/subscription.php ">Subscriptions</a>
+							<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>
 						</div>
-
-		<p>
-		<?php
-		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
-		 }
-		 ?>
-	 	</p>
 					</div>
 		</nav>
-
+		
 	<h1 id ="register"> Register New User </h1>
 
 	<form action="registerProcess.php" method="post">
-	<div class="row">
-			<div class="three columns"><label for="firstName">First Name</label><input class="u-full-width" type="text" name="firstName" required></div>
-	</div>
-	<div class="row">
-			<div class="three columns"><label for="lastName">Last Name</label><input class="u-full-width" type="text" name="lastName" required></div>
-	</div>
-	<div class="row">
-			<div class="three columns"><label for="username">Username</label><input class="u-full-width" type="text" name="username" required></div>
-	</div>
-	<div class="row">
-			<div class="three columns"><label for="email">Email</label><input class="u-full-width" type="text" name="email" required></div>
-	</div>
-	<div class="row">
-			<div class="three columns"><label for="password">Password</label><input class="u-full-width" type="password" name="password" required></div>
-	</div>
-	<div class="row">
-				<div class="three columns"><label for="confirmPass">Confirm Password</label><input class="u-full-width" type="password" name="confirmPass" required></div>
-	</div>
+		<div class="row">
+				<div class="three columns"><label for="firstName">First Name</label><input class="u-full-width" type="text" name="firstName" required></div>
+		</div>
+		<div class="row">
+				<div class="three columns"><label for="lastName">Last Name</label><input class="u-full-width" type="text" name="lastName" required></div>
+		</div>
+		<div class="row">
+				<div class="three columns"><label for="username">Username</label><input class="u-full-width" type="text" name="username" required></div>
+		</div>
+		<div class="row">
+				<div class="three columns"><label for="email">Email</label><input class="u-full-width" type="text" name="email" required></div>
+		</div>
+		<div class="row">
+				<div class="three columns"><label for="password">Password</label><input class="u-full-width" type="password" name="password" required></div>
+		</div>
+		<div class="row">
+					<div class="three columns"><label for="confirmPass">Confirm Password</label><input class="u-full-width" type="password" name="confirmPass" required></div>
+		</div>
 
 	<div class="response">
 
@@ -91,6 +91,7 @@
 
 		?>
 
+	</div>
 
 	<div class="registerForm"><input type="submit" value="Submit"></div>
 	</div>

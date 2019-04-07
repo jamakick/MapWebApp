@@ -10,6 +10,7 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="../css/normalize.css">
 		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/styles2.css">
 
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -69,8 +70,10 @@
 	echo "<form action='createReplyProcess.php?id=$id' method='POST'>";
 	?>
 	<div>
-	<div class="createReplyForm">Reply Content: <textarea name="content" required>Type your reply here:</textarea></div>
-
+	<div class="row">
+	<div class="six columns"><label>Reply Content</label> <textarea class='u-full-width' name="content" required>Type your reply here:</textarea></div>
+	</div>
+	
 	<div class="response">
 
  <!-- <? /*
@@ -87,7 +90,7 @@
 
 	</div>
 
-	<div class="createReplyForm"><input type="submit" value="Submit"></div>
+	<div class="createReplyForm"><input class="button-primary" type="submit" value="Submit"></div>
 	<div class="createReplyForm"><input type="reset"></div>
 
 </div>
