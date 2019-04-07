@@ -8,6 +8,7 @@
 
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/styles2.css">
 
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -21,11 +22,20 @@
 					<div class="logo">
 					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
-					<div class="menuLinks">
-						<ul>
-							<li><a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a></li>
-							<li><a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a></li>
-							<li>
+					<div class="row">
+						<div class="six columns" id="searchBar">
+							<form action="search/search.cgi">
+								<input class="seven columns" type="text" name ="terms">
+								<input class="four columns button-primary" type="submit" value="Search">
+							</form>
+						</div>
+						<div class="one column">
+							<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+						</div>
+						<div class="two columns">
+							<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>
+						</div>
+						<div class="two columns">
 						<?php
 						if (isset($_SESSION['username'])) {
 							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
@@ -35,19 +45,17 @@
 							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
 						}
 						?>
-							</li>
-						</ul>
-
-		<p>
+						</div>
+		<div class="one column"><p>
 		<?php
 		if (isset($_SESSION['name'])) {
 			echo $_SESSION['name'];
 		 }
 		 ?>
-		</p>
+	 	</p></div>
 					</div>
 		</nav>
-
+		
 		<h2>Case Information</h2>
 
 		<?php
@@ -92,36 +100,39 @@
 			}
 		}
 
-		echo "<table border=1px>";
+		echo "<table class='u-full-width'>";
+		echo "<thead>";
 		echo "<tr>";
 		echo "<th>Thread Title</th>";
 		echo "<th>Date</th>";
 		echo "<th>Replies</th>";
 		echo "<th>Votes</th>";
 		echo "</tr>";
+		echo "</thead>";
 
 		if (mysqli_num_rows($threadQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($threadQuery)) {
+				echo "<tbody>";
 				echo "<tr>";
 				echo "<td><a href='forum/viewThread.php?id=" . $row["thread_id"] . "'>" . $row["thread_title"] . "</a></td>";
 				echo "<td>" . $row["thread_date"] . "</td>";
 				echo "<td>" . $row["thread_replies"] . "</td>";
 				echo "<td>" . $row["thread_votes"]  . "</td>";
 				echo "</tr>";
+				echo "</tbody>";
 
 			}
 		}
 
 		echo "</table>";
 
-		echo "<p><a href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
-
+		echo "<p><a class='button' href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
 	?>
 
 
-		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p> Subscribe to case </p></a>
+		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p class="button"> Subscribe to case </p></a>
 
-		 <a href="index.php">Return to Home</a>
+		 <a class="button" href="index.php">Return to Home</a>
 
 
 	</body>
