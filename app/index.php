@@ -108,8 +108,6 @@ session_start();
 
 		var searchIDs = window.location.search.split("=")[1].split(",");
 
-		console.log(searchIDs);
-
 		var newCases = new Array();
 
 		for (var i = 0; i < cases.length; i++) {
@@ -118,7 +116,11 @@ session_start();
 			}
 		}
 
+		var allCases = cases;
+
 		cases = newCases;
+
+
 
 
 
@@ -127,6 +129,7 @@ session_start();
 		var map;
 
 		var markers = []
+		var allMarkers = []
 
 		function createMarker(location, title, infoString) {
 			var marker = new google.maps.Marker({
@@ -180,6 +183,23 @@ session_start();
 
 			}
 
+		for (var i = 0; i < allCases.length; i++) {
+
+			var location = {lat: parseFloat(allCases[i][12]), lng: parseFloat(allCases[i][13])};
+
+
+			var marker = new google.maps.Marker({
+				position: location,
+				map: map,
+				title: "None"
+			});
+
+			allMarkers.push(marker);
+
+			marker.setMap(null);
+
+		}
+
 		}
 
 		</script>
@@ -231,7 +251,8 @@ session_start();
 			var resultContent = this.nextElementSibling;
 			var id = resultContent.getAttribute("data-id");
 			map.setZoom(10);
-			map.setCenter(markers[id - 1].getPosition());
+			console.log(allMarkers[id - 1]);
+			map.setCenter(allMarkers[id - 1].getPosition());
 			if (resultContent.style.display == "block") {
 				resultContent.style.display = "none";
 			}
