@@ -6,9 +6,9 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" href="../css/normalize.css">
-		<link rel="stylesheet" href="../css/styles.css">
-		<link rel="stylesheet" href="../css/styles2.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/styles.css">
+
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -67,7 +67,7 @@
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
-        echo "<p>Votes: " . $record["thread_votes"] . " <a href='upvote.php?type=up&id=$id'>Upvote</a> <a href='upvote.php?type=down&id=$id'>Downvote</a></p>";
+        echo "<p>Votes: " . $record["thread_votes"] . " <a href='upvote.php?id=$id'>Upvote</a> <a href='downvote.php?id=$id'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
