@@ -56,7 +56,7 @@
 	 	</p></div>
 					</div>
 		</nav>
-		
+
 		<h2>Case Information</h2>
 
 		<?php
@@ -92,7 +92,7 @@
 		}
 		/////////////////////////// END JAKE'S STUFF ///////////////////////
 
-		echo "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dapibus a tortor consectetur scelerisque. Nullam tempus id ipsum nec mattis. Suspendisse tristique, lorem a feugiat varius, mi eros laoreet nunc, id pharetra arcu nisl vel lorem. Maecenas ut diam id eros semper aliquam ac quis felis. Sed purus ante, feugiat ut tempor nec, ultricies at nisi. Proin nec sapien suscipit, cursus nulla semper, bibendum dolor. Mauris id arcu sit amet sapien convallis viverra. Curabitur nec mauris a libero luctus molestie ut sed elit. Etiam iaculis purus at vestibulum feugiat. Morbi mi enim, efficitur a feugiat quis, condimentum id dolor.
+		echo "<h2>Case Summary</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dapibus a tortor consectetur scelerisque. Nullam tempus id ipsum nec mattis. Suspendisse tristique, lorem a feugiat varius, mi eros laoreet nunc, id pharetra arcu nisl vel lorem. Maecenas ut diam id eros semper aliquam ac quis felis. Sed purus ante, feugiat ut tempor nec, ultricies at nisi. Proin nec sapien suscipit, cursus nulla semper, bibendum dolor. Mauris id arcu sit amet sapien convallis viverra. Curabitur nec mauris a libero luctus molestie ut sed elit. Etiam iaculis purus at vestibulum feugiat. Morbi mi enim, efficitur a feugiat quis, condimentum id dolor.
 
 Cras lobortis vestibulum justo rutrum ultrices. Donec sodales, lacus quis feugiat elementum, lacus eros imperdiet risus, non aliquam dolor nisi in elit. Sed in justo at est pretium tincidunt nec id eros. Suspendisse et arcu tincidunt, molestie est ac, commodo ex. Nullam in magna dolor. Nulla lorem augue, fringilla quis massa eu, pharetra ultrices risus. Duis dapibus quam id massa imperdiet vestibulum. Phasellus viverra mi id pulvinar interdum. Integer quis consequat augue. Nam suscipit dictum ipsum, tincidunt convallis risus auctor eu. Ut sed sem lacinia, vulputate tortor ut, interdum risus. Donec eleifend egestas elit, ut viverra erat viverra at. Aliquam facilisis mi eu ornare viverra. Aenean vulputate ipsum libero, rutrum ullamcorper enim elementum at. Vestibulum eu ligula sed nisl suscipit placerat.
 
