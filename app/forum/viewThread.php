@@ -67,7 +67,7 @@
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
-        echo "<p>Votes: " . $record["thread_votes"] . " <a href='upvote.php?type=up&id=$id'>Upvote</a> <a href='upvote.php?type=down&id=$id'>Downvote</a></p>";
+        echo "<p>Votes: " . $record["thread_votes"] . " <a href='upvote.php?type=up&id=$id'>Upvote</a> <a href='downvote.php?type=down&id=$id'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
