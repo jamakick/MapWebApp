@@ -5,14 +5,14 @@ session_start();
 if(!$_SESSION["username"]) /* FIND BETTER WAY TO ANNOTATE SIGNED-ON-NESS, e.g. if($_SESSION['signed_in'] == false) */
 {
     //the user is not signed in
-    echo "Sorry, you have to be <a href='../users/login.php'>signed in</a> to create a topic.";
+    echo "Sorry, you have to be <a href='../users/login.php'>signed in</a> to create a thread.";
 }
 else
 {
 
     if (isset($_GET["id"])) {
       $id = $_GET["id"];
-    //  echo "This is the id: " . $id ;
+      // "This is the case id: " . $id ;
     }
 
     $connection= mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38"); // this info can be consolidated
@@ -92,7 +92,8 @@ else
             $result = mysqli_query($connection, $sql);
 
             //the query succeeded!
-            echo "You have successfully created your new thread. Check out the <a href='../caseinfo.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            //echo "You have successfully created your new thread. Check out the <a href='../caseinfo.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            header("Location: ../caseinfo.php?id=$case_id");
         }
     }
 }

@@ -20,9 +20,9 @@
 	<body>
 	<?php
 	if (isset($_GET["id"])) {
-		$id = $_GET["id"];
+		$id = $_GET["id"]; //this is the case ID
 	}
-	
+
 	echo "<h1 id ='createThread'>Create a New Forum Thread</h1>";
 
 	echo "<form action='createThreadProcess.php?id=$id' method='post'>";

@@ -109,7 +109,8 @@ else
             $result = mysqli_query($connection, $sql);
 
             //the query succeeded!
-            echo "You have successfully created your new reply. Check out the <a href='../viewThread.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            //echo "You have successfully created your new reply. Check out the <a href='../viewThread.php?id=$case_id'>discussion</a>."; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            header("Location:viewThread.php?id=$thread_id");
         }
     }
 }
