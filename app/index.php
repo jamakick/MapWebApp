@@ -27,7 +27,7 @@ session_start();
 					</div>
 					<div class="row">
 						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
 								<input class="seven columns" type="text" name ="terms">
 								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
