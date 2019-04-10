@@ -87,6 +87,8 @@
 				echo "<p>Victim's Cause of Death: " . $row["cause"] . "</p>";
 				echo "<p>Crime Offense: " . $row["offense"] . "</p>";
 				echo "<p>Year of Crime: " . $row["year"] . "</p>";
+
+				echo "<img class='caseImg' src='imgs/" . $row["img"] . "'>";
 			}
 
 		}

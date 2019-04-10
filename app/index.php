@@ -185,7 +185,7 @@ session_start();
 		for (var i = 0; i < allCases.length; i++) {
 
 			var location = {lat: parseFloat(allCases[i][12]), lng: parseFloat(allCases[i][13])};
-		
+
 
 			var marker = new google.maps.Marker({
 				position: location,
