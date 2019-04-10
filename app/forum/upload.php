@@ -37,22 +37,19 @@
   }
 
   // if uploadOK is true, upload file.
-  echo $uploadOK ;
+  //echo $uploadOK ;
 if ($uploadOK) {
 
-  echo $_FILES["toUpload"]["tmp_name"];
+  //echo $_FILES["toUpload"]["tmp_name"];
 
   if (move_uploaded_file($_FILES["toUpload"]["tmp_name"], $file_name)) {
-    echo "Success!" ;
-  }
-  else {
-    echo "Failed :(";
+    //echo "Success!" ;
   }
 
   if (isset($_GET["id"])) {
     $id = $_GET["id"] ;
 
-    //header("Location: ../caseinfo.php?id=$id");
+    header("Location: ../caseinfo.php?id=$id");
   }
 }
 
