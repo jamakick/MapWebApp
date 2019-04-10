@@ -52,7 +52,7 @@ session_start();
 		<div class="one column"><p>
 		<?php
 		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
+			echo "Hello, " . $_SESSION['name'];
 		 }
 		 ?>
 	 	</p></div>
@@ -103,6 +103,7 @@ session_start();
 		<script>
 
 		var cases = <?php echo json_encode($allCases) ?>;
+		var allCases = cases;
 
 		if (window.location.search) {
 
@@ -115,8 +116,6 @@ session_start();
 				newCases.push(cases[i])
 			}
 		}
-
-		var allCases = cases;
 
 		cases = newCases;
 
@@ -186,7 +185,7 @@ session_start();
 		for (var i = 0; i < allCases.length; i++) {
 
 			var location = {lat: parseFloat(allCases[i][12]), lng: parseFloat(allCases[i][13])};
-
+		
 
 			var marker = new google.maps.Marker({
 				position: location,
