@@ -98,6 +98,25 @@ Cras lobortis vestibulum justo rutrum ultrices. Donec sodales, lacus quis feugia
 
 Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem at convallis. Phasellus auctor eros accumsan hendrerit vulputate. Donec non dui ultricies ligula pharetra interdum. Vestibulum feugiat leo metus, et gravida ante luctus a. Nulla facilisi. Nulla ante ante, feugiat vel nisi a, pulvinar facilisis urna. Nunc velit elit, sodales a metus non, aliquet sollicitudin ante. Aliquam iaculis, turpis nec iaculis tempor, felis arcu aliquet magna, eu placerat dolor odio id dui. In quam felis, consequat tempus rhoncus nec, faucibus a purus. In maximus lectus risus, quis sodales eros egestas et. Praesent at sem nec nibh vehicula condimentum. Morbi commodo metus a urna elementum tincidunt. Pellentesque eu dictum neque. Etiam nec porttitor purus, quis suscipit turpis. Proin ac augue aliquam, congue mi eget, vulputate mauris.</p>" ;
 
+		echo "<h2>Photos</h2><p>Note: Photos are uploaded by users and are subject to our Terms of Service.</p>";
+		echo "<div class='gallery' style='width: 100%;'>";
+		$gallery_dir = "uploads/";
+
+		//iterate over all the photos in /uploads
+
+		foreach (glob("$gallery_dir{*.jpg,*.png,*.jpeg}", GLOB_BRACE) as $img) {
+			//get just the basename of the image
+			$img_name = explode("/", $img);
+			$img_name = end($img_name);
+
+			echo "<a href='$img' title='$img_name'>";
+			echo "<div style='float:left; border:1px solid black; width:250px; height:250px; padding:10px; margin:10px; text-align:center;'>";
+			echo "<img src='$img' style='height:100%; width:100%; object-fit:contain;'><br><span>$imgName</span>";
+			echo "</div>";
+			echo "</a>";
+		}
+			echo "<br></div>";
+
 		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_case = $id");
 		$caseQuery = mysqli_query($connection, "Select victim_first, victim_last from cases where id = $id");
 
@@ -133,9 +152,15 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 
 		echo "</table>";
 
-		echo "<p><a class='button' href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
-	?>
+		echo "<p><a class='button' href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>";
 
+
+	?>
+		 <form action='forum/upload.php?id=<?php echo $id; ?>' method='post' enctype='multipart/form-data'>
+			 Select an image to upload:
+			 <input type="file" name="toUpload" id="toUpload">
+			 <br><input type="submit" value="Upload Image" name="submit">
+		</form>
 
 		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p class="button"> Subscribe to case </p></a>
 
