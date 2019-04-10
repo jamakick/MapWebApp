@@ -133,9 +133,15 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 
 		echo "</table>";
 
-		echo "<p><a class='button' href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>"
-	?>
+		echo "<p><a class='button' href='forum/createThreadForm.php?id=$id'>Create new discussion thread</a></p>";
 
+
+	?>
+		 <form action='forum/upload.php?id=<?php echo $id; ?>' method='post' enctype='multipart/form-data'>
+			 Select an image to upload:
+			 <input type="file" name="toUpload" id="toUpload">
+			 <br><input type="submit" value="Upload Image" name="submit">
+		</form>
 
 		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p class="button"> Subscribe to case </p></a>
 
