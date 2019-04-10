@@ -27,7 +27,7 @@ session_start();
 					</div>
 					<div class="row">
 						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
 								<input class="seven columns" type="text" name ="terms">
 								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
@@ -185,7 +185,7 @@ session_start();
 		for (var i = 0; i < allCases.length; i++) {
 
 			var location = {lat: parseFloat(allCases[i][12]), lng: parseFloat(allCases[i][13])};
-		
+
 
 			var marker = new google.maps.Marker({
 				position: location,
