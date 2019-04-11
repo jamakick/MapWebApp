@@ -6,6 +6,10 @@ html {
     box-sizing: inherit;
 }
 
+p, h1, h2, h3 {
+	font-family: 'Poppins', sans-serif;
+}
+
 
 html, body {
 	width: 100%;
@@ -149,6 +153,21 @@ img {
 	margin-bottom: 1.0em;
 }
 
+.victiminfo {
+	float: left;
+	width: 40%;
+	margin-right: 8.0em;
+	height: 70%;
+}
+
+.caseImg {
+	float: right;
+	width: 40%;
+	margin-left: 5.0em;
+	margin-right: 3.0em;
+	height: 60%;
+	margin-bottom: 5.0em;
+}
 
 
 /* MEDIA QUERIES */

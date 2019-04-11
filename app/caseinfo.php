@@ -13,6 +13,9 @@ session_start();
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/styles2.css">
 
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -80,7 +83,7 @@ session_start();
 		if (mysqli_num_rows($userQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($userQuery)) {
 
-				echo "<p>Victim's ID: " . $row["id"] . "</p>";
+				echo "<div class='victiminfo'><p>Victim's ID: " . $row["id"] . "</p>";
 				echo "<p>Victim's Name: " . $row["victim_first"] . " " . $row["victim_last"] . "</p>";
 				echo "<p>Victim's Gender: " . $row["victim_gender"] . "</p>";
 				echo "<p>Victim's Race: " . $row["victim_race"] . "</p>";
@@ -88,7 +91,7 @@ session_start();
 				echo "<p>Crime Location: " . $row["city"] . ", " . $row["state"] . " " . $row["zip"] . "</p>";
 				echo "<p>Victim's Cause of Death: " . $row["cause"] . "</p>";
 				echo "<p>Crime Offense: " . $row["offense"] . "</p>";
-				echo "<p>Year of Crime: " . $row["year"] . "</p>";
+				echo "<p>Year of Crime: " . $row["year"] . "</p></div>";
 
 				echo "<img class='caseImg' src='imgs/" . $row["img"] . "'>";
 			}
@@ -171,7 +174,7 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 		 <a class="button" href="index.php">Return to Home</a>
 
 		 <footer>
- 		<div class="footerDiv">
+ 		<div class="footerDiv2">
 
  		<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
  		<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
