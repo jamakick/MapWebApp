@@ -169,6 +169,14 @@ img {
 	margin-bottom: 5.0em;
 }
 
+.gallery {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	margin: 2.0em;
+}
+
 
 /* MEDIA QUERIES */
 /* X-Small devices (portait phones, less than 576px) */
