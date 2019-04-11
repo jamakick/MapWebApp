@@ -106,6 +106,18 @@ img {
 
 }
 
+.footerDiv2 {
+	margin-top: 5.0em;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	width: 100%;
+
+}
+
 .footerDiv a {
 	color: #00AAF0;
 	font-size: 12px;
@@ -113,6 +125,31 @@ img {
 	margin-left: 3px;
 	margin-right: 3px;
 }
+
+.footerDiv2 a {
+	color: #00AAF0;
+	font-size: 12px;
+	font-style: italic;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+#info h3 {
+	font-style: bold;
+	font-size: 24px;
+}
+
+#info p {
+	font-size: 16px;
+}
+
+#subHead3 {
+	font-style: bold;
+	font-size: 24px;
+	margin-bottom: 1.0em;
+}
+
+
 
 /* MEDIA QUERIES */
 /* X-Small devices (portait phones, less than 576px) */

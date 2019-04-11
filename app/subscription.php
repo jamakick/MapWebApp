@@ -75,7 +75,7 @@ session_start();
 
 		if (mysqli_num_rows($subQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($subQuery)) {
-				echo "Your subscribed cases:";
+				echo "<h3 id='subHead3'>Your subscribed cases:</h3><hr>";
 				$subs = (string) $row["subscription"];}}
 
 
@@ -142,7 +142,13 @@ session_start();
 	for (i = 0; i < cases.length; i++) {
 		if (subs.includes(cases[i][0])) {
 			output += "<p>";
-			output += cases[i].toString();
+			output += "Victim Name: " + cases[i][1] + " " + cases[i][2];
+			output += "</p>";
+			output += "<p>";
+			output += "Victim Gender: " + cases[i][3];
+			output += "</p>";
+			output += "<p>";
+			output += "Victim Nationality: " + cases[i][4];
 			output += "</p>";
 			output += "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a><br>";
 			output += "<a href='http://cgi.soic.indiana.edu/~team38/subscribe/removesub.php?id=" + cases[i][0] + "'>Remove from Subscribed Cases</a><hr>";

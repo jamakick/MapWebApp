@@ -71,7 +71,7 @@ session_start();
 			}
 			?>
 
-			<p id="info"></p>
+			<div id="info"></div>
 
 			<?php  $connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
 
@@ -107,14 +107,22 @@ session_start();
 
 			var infoHolder = document.getElementById("info");
 
-			infoHolder.innerHTML = info;
+			var userString = "";
+
+			userString += "<h3>Name: </h3> <p>" + info[2] + " " + info[3] + "</p>";
+			userString += "<h3>Username: </h3> <p>" + info[4] + "</p>";
+			userString += "<h3>Email: </h3> <p>" + info[1] + "</p>";
+			userString += "<h3>Browsing History: </h3> <p>" + info[5] + "</p>";
+
+
+			infoHolder.innerHTML = userString;
 
 			</script>
 
 		</div>
 
 		<footer>
-		<div class="footerDiv">
+		<div class="footerDiv2">
 
 		<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
 		<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
