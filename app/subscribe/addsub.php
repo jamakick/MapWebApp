@@ -13,6 +13,9 @@ session_start();
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/styles2.css">
 
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -82,7 +85,7 @@ if (isset($_SESSION['username'])) {
 			$subs = (string) $row['subscription'];
 
 			if (strpos($subs, $id) !== false) {
-				echo 'You are already subscribed to this case.';
+				echo 'You are already subscribed to this case. ';
 				echo "<a href='../caseinfo.php?id=$id'>Return to Case Details</a>";
 			}
 
@@ -92,8 +95,8 @@ if (isset($_SESSION['username'])) {
 				mysqli_query($connection, "Update users set subscription = '$subs' where username = '$username'");
 				mysqli_commit($connection);
 
-				echo "Case added to subscriptions";
-				echo "<a href='../caseinfo.php?id=$id'>Return to Case Details</a>";
+				echo "Case added to subscriptions ";
+				header('Location: ../caseinfo.php?id=' . $id);
 
 
 			}
@@ -120,3 +123,24 @@ else if (!isset($_SESSION['username'])) {
 
 
 ?>
+<footer>
+<div class="footerDiv">
+
+<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+<?php
+if (isset($_SESSION['username'])) {
+	echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+}
+
+else if (!isset($_SESSION['username'])) {
+	echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+}
+?>
+
+</div>
+</footer>
+
+</body>
+</html>

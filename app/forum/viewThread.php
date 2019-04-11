@@ -10,6 +10,9 @@
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/styles2.css">
 
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -20,41 +23,37 @@
 
 
 		<nav role="navigation">
-					<div class="logo">
-					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
-					</div>
-					<div class="row">
-						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
-								<input class="seven columns" type="text" name ="terms">
-								<input class="four columns button-primary" type="submit" value="Search">
-							</form>
-						</div>
-						<div class="one column">
-							<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
-						</div>
-						<div class="two columns">
-							<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>
-						</div>
-						<div class="two columns">
-						<?php
-						if (isset($_SESSION['username'])) {
-							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
-						}
+			<div class="logo">
+			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+			</div>
+			<div class="row">
+				<div class="seven columns" id="searchBar">
+					<form action="search/search.cgi">
+						<input class="eight columns" type="text" name ="terms">
+						<input class="four columns button-primary" type="submit" value="Search">
+					</form>
+				</div>
+				<div class="five columns">
+					<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>&emsp;&emsp;
+					<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>&emsp;&emsp;
+					<?php
+					if (isset($_SESSION['username'])) {
+						echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>&emsp;&emsp;';
+					}
 
-						else if (!isset($_SESSION['username'])) {
-							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
-						}
-						?>
-						</div>
-		<div class="one column"><p>
-		<?php
-		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
-		 }
-		 ?>
-	 	</p></div>
-					</div>
+					else if (!isset($_SESSION['username'])) {
+						echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>&emsp;&emsp;';
+					}
+					?>
+					<i>
+					<?php
+					if (isset($_SESSION['name'])) {
+						echo "Hello, " . $_SESSION['name'];
+					 }
+					 ?>
+				 	</i>
+				</div>
+			</div>
 		</nav>
 
 		<div class="forum">
@@ -93,7 +92,7 @@
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
 				echo "<h1>Case Discussion: </h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
-        echo "<p>Votes: " . $record["thread_votes"] . " <a class='button' href='upvote.php?id=$id'>Upvote</a> <a class='button' href='downvote.php?id=$id'>Downvote</a></p>";
+        echo "<p>Votes: " . $record["thread_votes"] . " <a class='button' href='vote.php?type=up&id=$id'>Upvote</a> <a class='button' href='vote.php?type=down&id=$id'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
         echo "<p><a class='button' href='createReplyForm.php?id=$id'>Reply to Thread</a></p>";
 				if ($user_id == $record["thread_by"]) {
@@ -135,8 +134,8 @@
 				echo "<td>" . $row["reply_replies"] . "</td>";
 				echo "<td>" . $row["reply_votes"]  . "</td>";
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
-				echo "<td><a href='upvote.php?rid=$replyId'>Upvote</a></td>";
-				echo "<td><a href='downvote.php?rid=$replyId'>Downvote</a></td>";
+				echo "<td><a href='vote.php?type=up&rid=$replyId'>Upvote</a></td>";
+				echo "<td><a href='vote.php?type=down&rid=$replyId'>Downvote</a></td>";
         echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
 					echo "<td><a href='deleteReply.php?id=$replyId'>Delete</a></td>";
@@ -158,8 +157,21 @@
 
 
 		<footer>
-		<div class="footerDiv">
-		<p>footer</p>
+		<div class="footerDiv2">
+
+		<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+		<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+		<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+		<?php
+		if (isset($_SESSION['username'])) {
+			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+		}
+
+		else if (!isset($_SESSION['username'])) {
+			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+		}
+		?>
+
 		</div>
 		</footer>
 

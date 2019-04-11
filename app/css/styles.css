@@ -6,6 +6,10 @@ html {
     box-sizing: inherit;
 }
 
+p, h1, h2, h3 {
+	font-family: 'Poppins', sans-serif;
+}
+
 
 html, body {
 	width: 100%;
@@ -54,6 +58,7 @@ img {
 	height: 90%;
 	width: 69%;
 	float: left;
+	position: relative;
 }
 
 #sideView {
@@ -61,12 +66,12 @@ img {
 	width: 28%;
 	overflow: scroll;
 	float: right;
+	position: relative;
 	margin: 0 1.5em 0 0.5em;
 }
 
 .collapse {
 	cursor: pointer;
-	padding: 18px;
 	background-color: white;
 	width: 100%;
 	border: none;
@@ -74,7 +79,8 @@ img {
 }
 
 .active, .collapse:hover {
-	background-color: #fafafa;
+	background-color: #00AAF0;
+	color: white;
 }
 
 .sideResult {
@@ -83,6 +89,94 @@ img {
 	background-color: #fafafa;
 	padding: 0.1em;
 }
+
+.logo {
+	width: 40%;
+}
+
+.logo a h1 {
+	font-size: 40px;
+}
+
+.footerDiv {
+	margin-top: 47.0em;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	width: 100%;
+
+}
+
+.footerDiv2 {
+	margin-top: 5.0em;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	width: 100%;
+
+}
+
+.footerDiv a {
+	color: #00AAF0;
+	font-size: 12px;
+	font-style: italic;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.footerDiv2 a {
+	color: #00AAF0;
+	font-size: 12px;
+	font-style: italic;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+#info h3 {
+	font-style: bold;
+	font-size: 24px;
+}
+
+#info p {
+	font-size: 16px;
+}
+
+#subHead3 {
+	font-style: bold;
+	font-size: 24px;
+	margin-bottom: 1.0em;
+}
+
+.victiminfo {
+	float: left;
+	width: 40%;
+	margin-right: 8.0em;
+	height: 70%;
+}
+
+.caseImg {
+	float: right;
+	width: 40%;
+	margin-left: 5.0em;
+	margin-right: 3.0em;
+	height: 60%;
+	margin-bottom: 5.0em;
+}
+
+.gallery {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	margin: 2.0em;
+}
+
 
 /* MEDIA QUERIES */
 /* X-Small devices (portait phones, less than 576px) */
