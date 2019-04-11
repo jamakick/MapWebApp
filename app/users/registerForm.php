@@ -32,9 +32,21 @@ if (isset($_SESSION['username'])) {
 	<body>
 
 		<nav role="navigation">
-					<div class="logo">
-					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
-					</div>
+			<div class="logo">
+			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+			</div>
+			<div class="row">
+				<div class="seven columns" id="searchBar">
+					<form action="search/search.cgi">
+						<input class="eight columns" type="text" name ="terms">
+						<input class="four columns button-primary" type="submit" value="Search">
+					</form>
+				</div>
+				<div class="five columns">
+					<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>&emsp;&emsp;
+					<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>&emsp;&emsp;
+				</div>
+			</div>
 		</nav>
 
 	<h1 id ="register"> Register New User </h1>
