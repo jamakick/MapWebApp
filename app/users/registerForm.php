@@ -23,6 +23,7 @@ if (isset($_SESSION['username'])) {
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
+
 	</head>
 
 	<body>
@@ -46,7 +47,7 @@ if (isset($_SESSION['username'])) {
 						</div>
 					</div>
 		</nav>
-		
+
 	<h1 id ="register"> Register New User </h1>
 
 	<form action="registerProcess.php" method="post">
@@ -68,7 +69,9 @@ if (isset($_SESSION['username'])) {
 		<div class="row">
 					<div class="three columns"><label for="confirmPass">Confirm Password</label><input class="u-full-width" type="password" name="confirmPass" required></div>
 		</div>
-
+		<div class="row">
+					<div><label for="disclaimer">Disclosure: due to the nature of our site, by continuing to register and use our platform you confirm that you are over 18 years of age and may be exposed to mature content related to the cold cases on our site.</label><input type="checkbox" name="disclaimer" value="confirm" required>I am over 18 years old and acknowledge that this site contains mature content.</div> <br>
+		</div>
 	<div class="response">
 
 		<?php
