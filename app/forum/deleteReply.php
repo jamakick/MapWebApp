@@ -95,7 +95,7 @@
 	</div>
 
 	<footer>
-	<div class="footerDiv">
+	<div class="footerDiv2">
 
 	<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
 	<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
