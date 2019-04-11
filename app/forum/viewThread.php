@@ -10,6 +10,9 @@
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/styles2.css">
 
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -158,8 +161,21 @@
 
 
 		<footer>
-		<div class="footerDiv">
-		<p>footer</p>
+		<div class="footerDiv2">
+
+		<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+		<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+		<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+		<?php
+		if (isset($_SESSION['username'])) {
+			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+		}
+
+		else if (!isset($_SESSION['username'])) {
+			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+		}
+		?>
+
 		</div>
 		</footer>
 

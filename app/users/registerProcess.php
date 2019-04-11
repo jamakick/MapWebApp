@@ -87,7 +87,7 @@
 
 		<script>
 
-		document.onload = setTimeout(function () { window.location.replace("login.php") }, 3000);
+		document.onload = setTimeout(function () { window.location.replace("login.php") }, 2000);
 
 		</script>
 

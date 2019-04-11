@@ -1,15 +1,20 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Case Information</title>
+		<title>Cold Case Connection</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Stylesheets -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/styles2.css">
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
 
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -25,7 +30,7 @@
 					</div>
 					<div class="row">
 						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
 								<input class="seven columns" type="text" name ="terms">
 								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
@@ -50,7 +55,7 @@
 		<div class="one column"><p>
 		<?php
 		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
+			echo "Hello, " . $_SESSION['name'];
 		 }
 		 ?>
 	 	</p></div>
@@ -78,7 +83,7 @@
 		if (mysqli_num_rows($userQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($userQuery)) {
 
-				echo "<p>Victim's ID: " . $row["id"] . "</p>";
+				echo "<div class='victiminfo'><p>Victim's ID: " . $row["id"] . "</p>";
 				echo "<p>Victim's Name: " . $row["victim_first"] . " " . $row["victim_last"] . "</p>";
 				echo "<p>Victim's Gender: " . $row["victim_gender"] . "</p>";
 				echo "<p>Victim's Race: " . $row["victim_race"] . "</p>";
@@ -86,7 +91,7 @@
 				echo "<p>Crime Location: " . $row["city"] . ", " . $row["state"] . " " . $row["zip"] . "</p>";
 				echo "<p>Victim's Cause of Death: " . $row["cause"] . "</p>";
 				echo "<p>Crime Offense: " . $row["offense"] . "</p>";
-				echo "<p>Year of Crime: " . $row["year"] . "</p>";
+				echo "<p>Year of Crime: " . $row["year"] . "</p></div>";
 
 				echo "<img class='caseImg' src='imgs/" . $row["img"] . "'>";
 			}
@@ -101,7 +106,7 @@ Cras lobortis vestibulum justo rutrum ultrices. Donec sodales, lacus quis feugia
 Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem at convallis. Phasellus auctor eros accumsan hendrerit vulputate. Donec non dui ultricies ligula pharetra interdum. Vestibulum feugiat leo metus, et gravida ante luctus a. Nulla facilisi. Nulla ante ante, feugiat vel nisi a, pulvinar facilisis urna. Nunc velit elit, sodales a metus non, aliquet sollicitudin ante. Aliquam iaculis, turpis nec iaculis tempor, felis arcu aliquet magna, eu placerat dolor odio id dui. In quam felis, consequat tempus rhoncus nec, faucibus a purus. In maximus lectus risus, quis sodales eros egestas et. Praesent at sem nec nibh vehicula condimentum. Morbi commodo metus a urna elementum tincidunt. Pellentesque eu dictum neque. Etiam nec porttitor purus, quis suscipit turpis. Proin ac augue aliquam, congue mi eget, vulputate mauris.</p>" ;
 
 		echo "<h2>Photos</h2><p>Note: Photos are uploaded by users and are subject to our Terms of Service.</p>";
-		echo "<div class='gallery' style='width: 100%;'>";
+		echo "<div class='gallery'>";
 		$gallery_dir = "uploads/";
 
 		//iterate over all the photos in /uploads
@@ -117,7 +122,16 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 			echo "</div>";
 			echo "</a>";
 		}
-			echo "<br></div>";
+			echo "</div>";
+		?>
+
+		<form action='forum/upload.php?id=<?php echo $id; ?>' method='post' enctype='multipart/form-data'>
+			Select an image to upload:
+			<input type="file" name="toUpload" id="toUpload" required>
+			<br><input type="submit" value="Upload Image" name="submit">
+	   </form>
+
+	   <?php
 
 		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_case = $id");
 		$caseQuery = mysqli_query($connection, "Select victim_first, victim_last from cases where id = $id");
@@ -158,16 +172,29 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 
 
 	?>
-		 <form action='forum/upload.php?id=<?php echo $id; ?>' method='post' enctype='multipart/form-data'>
-			 Select an image to upload:
-			 <input type="file" name="toUpload" id="toUpload">
-			 <br><input type="submit" value="Upload Image" name="submit">
-		</form>
 
 		 <a href="subscribe/addsub.php?id=<?php echo $id; ?>"><p class="button"> Subscribe to case </p></a>
 
 		 <a class="button" href="index.php">Return to Home</a>
 
+		 <footer>
+ 		<div class="footerDiv2">
 
-	</body>
-</html>
+ 		<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+ 		<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+ 		<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+ 		<?php
+ 		if (isset($_SESSION['username'])) {
+ 			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+ 		}
+
+ 		else if (!isset($_SESSION['username'])) {
+ 			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+ 		}
+ 		?>
+
+ 		</div>
+ 		</footer>
+
+ 	</body>
+ </html>

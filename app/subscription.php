@@ -5,13 +5,16 @@ session_start();
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Subscriptions</title>
+		<title>Cold Case Connection</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/styles2.css">
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
 
 		<!--[if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -27,7 +30,7 @@ session_start();
 					</div>
 					<div class="row">
 						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
 								<input class="seven columns" type="text" name ="terms">
 								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
@@ -52,13 +55,13 @@ session_start();
 		<div class="one column"><p>
 		<?php
 		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
+			echo "Hello, " . $_SESSION['name'];
 		 }
 		 ?>
 	 	</p></div>
 					</div>
 		</nav>
-		
+
 	<?php
 
 	$connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
@@ -75,7 +78,7 @@ session_start();
 
 		if (mysqli_num_rows($subQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($subQuery)) {
-				echo "Your subscribed cases:";
+				echo "<h3 id='subHead3'>Your subscribed cases:</h3><hr>";
 				$subs = (string) $row["subscription"];}}
 
 
@@ -142,7 +145,13 @@ session_start();
 	for (i = 0; i < cases.length; i++) {
 		if (subs.includes(cases[i][0])) {
 			output += "<p>";
-			output += cases[i].toString();
+			output += "Victim Name: " + cases[i][1] + " " + cases[i][2];
+			output += "</p>";
+			output += "<p>";
+			output += "Victim Gender: " + cases[i][3];
+			output += "</p>";
+			output += "<p>";
+			output += "Victim Nationality: " + cases[i][4];
 			output += "</p>";
 			output += "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a><br>";
 			output += "<a href='http://cgi.soic.indiana.edu/~team38/subscribe/removesub.php?id=" + cases[i][0] + "'>Remove from Subscribed Cases</a><hr>";
@@ -154,3 +163,25 @@ session_start();
 		</script>
 
 	</script>
+
+	<footer>
+	<div class="footerDiv2">
+
+	<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+	<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+	<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+	<?php
+	if (isset($_SESSION['username'])) {
+		echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+	}
+
+	else if (!isset($_SESSION['username'])) {
+		echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+	}
+	?>
+
+	</div>
+	</footer>
+
+</body>
+</html>
