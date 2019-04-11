@@ -1,12 +1,14 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Case Information</title>
+		<title>Cold Case Connection</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Stylesheets -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/styles2.css">
@@ -25,7 +27,7 @@
 					</div>
 					<div class="row">
 						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
 								<input class="seven columns" type="text" name ="terms">
 								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
@@ -50,7 +52,7 @@
 		<div class="one column"><p>
 		<?php
 		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
+			echo "Hello, " . $_SESSION['name'];
 		 }
 		 ?>
 	 	</p></div>
@@ -168,6 +170,24 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 
 		 <a class="button" href="index.php">Return to Home</a>
 
+		 <footer>
+ 		<div class="footerDiv">
 
-	</body>
-</html>
+ 		<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+ 		<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+ 		<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+ 		<?php
+ 		if (isset($_SESSION['username'])) {
+ 			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+ 		}
+
+ 		else if (!isset($_SESSION['username'])) {
+ 			echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+ 		}
+ 		?>
+
+ 		</div>
+ 		</footer>
+
+ 	</body>
+ </html>

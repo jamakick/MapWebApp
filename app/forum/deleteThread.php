@@ -86,3 +86,26 @@
     }
     echo "<a href='deleteThreadProcess.php?id=$id'>Yes, Delete</a><br>";
     echo "<a href='viewThread.php?id=$id'>No, go back!</a>";
+?>
+
+<footer>
+<div class="footerDiv">
+
+<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+<?php
+if (isset($_SESSION['username'])) {
+	echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+}
+
+else if (!isset($_SESSION['username'])) {
+	echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+}
+?>
+
+</div>
+</footer>
+
+</body>
+</html>

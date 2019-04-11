@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Subscriptions</title>
+		<title>Cold Case Connection</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,7 +27,7 @@ session_start();
 					</div>
 					<div class="row">
 						<div class="six columns" id="searchBar">
-							<form action="search/search.cgi">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
 								<input class="seven columns" type="text" name ="terms">
 								<input class="four columns button-primary" type="submit" value="Search">
 							</form>
@@ -52,13 +52,13 @@ session_start();
 		<div class="one column"><p>
 		<?php
 		if (isset($_SESSION['name'])) {
-			echo $_SESSION['name'];
+			echo "Hello, " . $_SESSION['name'];
 		 }
 		 ?>
 	 	</p></div>
 					</div>
 		</nav>
-		
+
 	<?php
 
 	$connection=mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
@@ -154,3 +154,25 @@ session_start();
 		</script>
 
 	</script>
+
+	<footer>
+	<div class="footerDiv">
+
+	<a href="http://cgi.soic.indiana.edu/~team38/index.php">Home</a>
+	<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+	<a href="http://cgi.soic.indiana.edu/~team38/subscription.php">Subscriptions</a>
+	<?php
+	if (isset($_SESSION['username'])) {
+		echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+	}
+
+	else if (!isset($_SESSION['username'])) {
+		echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+	}
+	?>
+
+	</div>
+	</footer>
+
+</body>
+</html>
