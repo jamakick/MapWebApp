@@ -79,6 +79,32 @@
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
 
+	 	$caseQuery = mysqli_query($connection, "SELECT thread_case FROM Threads WHERE thread_id = $id;");
+		//lookup victim name based on case ID, display in breadcrumb
+
+		if (mysqli_num_rows($caseQuery) > 0) {
+			while ($record = mysqli_fetch_assoc($caseQuery)) {
+				$thread_case = $record["thread_case"];
+			}
+		}
+
+		$nameQuery = mysqli_query($connection, "SELECT * FROM cases WHERE id = $thread_case;");
+
+
+		while ($case = mysqli_fetch_assoc($nameQuery)) {
+			$first_name = $case["victim_first"];
+			$last_name = $case["victim_last"];
+
+			//echo $first_name . " " . $last_name ;
+
+			//$fullname = $first_name . " " . $last_name ;
+		}
+
+
+
+		echo "<p><a href='../index.php'>Home</a> / <a href='../caseinfo.php?id=$thread_case'>Case Info: $first_name $last_name </a> / <a href='../caseinfo.php?id=$thread_case#discussion'>Case Discussion</a></p>";
+
+
 		$replyQuery = mysqli_query($connection, "Select * from Replies where reply_thread = $id;");
 		$threadQuery = mysqli_query($connection, "Select * from Threads where thread_id = $id;");
 
@@ -94,7 +120,7 @@
 
 		if (mysqli_num_rows($threadQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($threadQuery)) {
-				echo "<h1>Case Discussion: </h1>";
+				echo "<h1>Case Discussion</h1>";
         echo "<h2>" . $record["thread_title"] . "</h2>";
         echo "<p>Votes: " . $record["thread_votes"] . " <a class='button' href='vote.php?type=up&id=$id'>Upvote</a> <a class='button' href='vote.php?type=down&id=$id'>Downvote</a></p>";
         echo "<p>" . $record["thread_content"] . "</p>";
@@ -140,7 +166,6 @@
         echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
 				echo "<td><a href='vote.php?type=up&rid=$replyId'>Upvote</a></td>";
 				echo "<td><a href='vote.php?type=down&rid=$replyId'>Downvote</a></td>";
-        echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
 					echo "<td><a href='deleteReply.php?id=$replyId'>Delete</a></td>";
 					echo "<td><a href='editReplyForm.php?id=$replyId'>Edit</a></td>";

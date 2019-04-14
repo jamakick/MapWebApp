@@ -138,7 +138,7 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
-				echo "<h2>Case Discussion: " . $record["victim_first"] . " " . $record["victim_last"] . "</h2>";
+				echo "<h2 id='discussion'>Case Discussion: " . $record["victim_first"] . " " . $record["victim_last"] . "</h2>";
 			}
 		}
 

@@ -69,10 +69,18 @@ else
         {
             $sql = "COMMIT;";
             $result = mysqli_query($connection, $sql);
+
+            $sql = "SELECT reply_thread FROM Replies WHERE reply_id = $id;";
+            $result = mysqli_query($connection, $sql);
+
+            while ($record = mysqli_fetch_assoc($result)) {
+              $thread_id = $record["reply_thread"];
+            }
           //  echo "Committed work";
 
             //the query succeeded!
-            echo 'You have successfully edited your reply. Check out the <a href="forum.php">discussion</a>.'; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
+            header("Location:viewThread.php?id=$thread_id");
+            //echo 'You have successfully edited your reply. Check out the <a href="forum.php">discussion</a>.'; // Find way to redirect, e.g. '<a href="thread.php?id='. $thread_id . '">your new thread</a>.';
         }
     }
 }

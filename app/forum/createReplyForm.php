@@ -9,9 +9,9 @@ session_start();
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="css/styles2.css">
+		<link rel="stylesheet" href="../css/normalize.css">
+		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/styles2.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
@@ -62,36 +62,63 @@ session_start();
 					</div>
 		</nav>
 
-	<h1 id ="createReply">Create reply</h1>
-
-	<h2>Reply to:</h2>
-	<?php
-
-		// $username = $_SESSION['username'];
-
-		if (isset($_GET["id"])) {
-			$id = $_GET["id"];
-			$db = "Threads";
-			$idName = "thread_id"; //Inelegant -- fix this
-			$contentName = "thread_content";
-		//	echo "Got parent thread information<br>";
-		//	echo "This is the id: " . $id ;
-		//	echo " This is the idName: " . $idName	;
-		} elseif (isset($_GET["rid"])) {
-			$id = $_GET["rid"];
-			$db = "Replies";
-			$idName = "reply_id"; // inelegant -- fix this
-			$contentName = "reply_content";
-		//	echo "Got parent reply information<br>";
-		} else {
-			echo "We were unable to locate the thread or reply you were replying to. Please try again.";
-		}
+		<?php
 
 		$connection= mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
 
 		if (!$connection) {
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
+
+		$username = $_SESSION['username'];
+
+		if (isset($_GET["id"])) {
+			$id = $_GET["id"];
+			$db = "Threads";
+			$idName = "thread_id"; //Inelegant -- fix this
+			$contentName = "thread_content";
+			$isThread = true;
+
+		} elseif (isset($_GET["rid"])) {
+			$id = $_GET["rid"];
+			$db = "Replies";
+			$idName = "reply_id"; // inelegant -- fix this
+			$contentName = "reply_content";
+			$isThread = false;
+
+		} else {
+			echo "We were unable to locate the thread or reply you were replying to. Please try again.";
+		}
+
+		$caseQuery = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
+
+		while ($record = mysqli_fetch_assoc($caseQuery)) {
+			if ($isThread) {
+				$case_id = $record["thread_case"];
+
+			}
+			else {
+				$case_id = $record["reply_case"];
+			}
+
+		}
+
+		$nameQuery = mysqli_query($connection, "SELECT * FROM cases WHERE id = $case_id;");
+
+
+		while ($case = mysqli_fetch_assoc($nameQuery)) {
+			$first_name = $case["victim_first"];
+			$last_name = $case["victim_last"];
+
+		}
+
+		echo "<p><a href='../index.php'>Home</a> / <a href='../caseinfo.php?id=$case_id'>Case Info: $first_name $last_name </a> /<a href='../caseinfo.php?id=$case_id#discussion'> Case Discussion </a>/ Create Reply</p>";
+
+
+	 	echo "<h1 id ='createReply'>Create reply</h1>" ;
+	 	echo "<h2>Reply to:</h2>" ;
+
+
 
 		$findParent = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
 
