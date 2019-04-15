@@ -23,8 +23,8 @@
 
 
 		<nav role="navigation">
-			<div class="logo">
-			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+			<div>
+			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1 class="logo">Cold Case Connection</h1></a>
 			</div>
 			<div class="row">
 				<div class="seven columns" id="searchBar">
