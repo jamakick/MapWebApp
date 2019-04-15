@@ -9,9 +9,9 @@ session_start();
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="css/styles2.css">
+		<link rel="stylesheet" href="../css/normalize.css">
+		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/styles2.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
@@ -25,69 +25,100 @@ session_start();
 	<body>
 
 		<nav role="navigation">
-			<div class="logo">
-			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
-			</div>
-			<div class="row">
-				<div class="seven columns" id="searchBar">
-					<form action="search/search.cgi">
-						<input class="eight columns" type="text" name ="terms">
-						<input class="four columns button-primary" type="submit" value="Search">
-					</form>
-				</div>
-				<div class="five columns">
-					<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>&emsp;&emsp;
-					<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>&emsp;&emsp;
-					<?php
-					if (isset($_SESSION['username'])) {
-						echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>&emsp;&emsp;';
-					}
+					<div class="logo">
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+					</div>
+					<div class="row">
+						<div class="six columns" id="searchBar">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
+								<input class="seven columns" type="text" name ="terms">
+								<input class="four columns button-primary" type="submit" value="Search">
+							</form>
+						</div>
+						<div class="one column">
+							<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+						</div>
+						<div class="two columns">
+							<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>
+						</div>
+						<div class="two columns">
+						<?php
+						if (isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+						}
 
-					else if (!isset($_SESSION['username'])) {
-						echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>&emsp;&emsp;';
-					}
-					?>
-					<i>
-					<?php
-					if (isset($_SESSION['name'])) {
-						echo "Hello, " . $_SESSION['name'];
-					 }
-					 ?>
-				 	</i>
-				</div>
-			</div>
+						else if (!isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+						}
+						?>
+						</div>
+		<div class="one column"><p>
+		<?php
+		if (isset($_SESSION['name'])) {
+			echo "Hello, " . $_SESSION['name'];
+		 }
+		 ?>
+	 	</p></div>
+					</div>
 		</nav>
 
-	<h1 id ="createReply">Create reply</h1>
-
-	<h2>Reply to:</h2>
-	<?php
-
-		// $username = $_SESSION['username'];
-
-		if (isset($_GET["id"])) {
-			$id = $_GET["id"];
-			$db = "Threads";
-			$idName = "thread_id"; //Inelegant -- fix this
-			$contentName = "thread_content";
-		//	echo "Got parent thread information<br>";
-		//	echo "This is the id: " . $id ;
-		//	echo " This is the idName: " . $idName	;
-		} elseif (isset($_GET["rid"])) {
-			$id = $_GET["rid"];
-			$db = "Replies";
-			$idName = "reply_id"; // inelegant -- fix this
-			$contentName = "reply_content";
-		//	echo "Got parent reply information<br>";
-		} else {
-			echo "We were unable to locate the thread or reply you were replying to. Please try again.";
-		}
+		<?php
 
 		$connection= mysqli_connect("db.soic.indiana.edu", "i494f18_team38", "my+sql=i494f18_team38", "i494f18_team38");
 
 		if (!$connection) {
 			die("Failed to connect to MySQL: " . mysqli_connect_error() );
 		}
+
+		$username = $_SESSION['username'];
+
+		if (isset($_GET["id"])) {
+			$id = $_GET["id"];
+			$db = "Threads";
+			$idName = "thread_id"; //Inelegant -- fix this
+			$contentName = "thread_content";
+			$isThread = true;
+
+		} elseif (isset($_GET["rid"])) {
+			$id = $_GET["rid"];
+			$db = "Replies";
+			$idName = "reply_id"; // inelegant -- fix this
+			$contentName = "reply_content";
+			$isThread = false;
+
+		} else {
+			echo "We were unable to locate the thread or reply you were replying to. Please try again.";
+		}
+
+		$caseQuery = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
+
+		while ($record = mysqli_fetch_assoc($caseQuery)) {
+			if ($isThread) {
+				$case_id = $record["thread_case"];
+
+			}
+			else {
+				$case_id = $record["reply_case"];
+			}
+
+		}
+
+		$nameQuery = mysqli_query($connection, "SELECT * FROM cases WHERE id = $case_id;");
+
+
+		while ($case = mysqli_fetch_assoc($nameQuery)) {
+			$first_name = $case["victim_first"];
+			$last_name = $case["victim_last"];
+
+		}
+
+		echo "<p><a href='../index.php'>Home</a> / <a href='../caseinfo.php?id=$case_id'>Case Info: $first_name $last_name </a> /<a href='../caseinfo.php?id=$case_id#discussion'> Case Discussion </a>/ Create Reply</p>";
+
+
+	 	echo "<h1 id ='createReply'>Create reply</h1>" ;
+	 	echo "<h2>Reply to:</h2>" ;
+
+
 
 		$findParent = mysqli_query($connection, "SELECT * FROM $db WHERE $idName = $id;");
 

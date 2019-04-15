@@ -25,37 +25,41 @@ session_start();
 	<body>
 
 		<nav role="navigation">
-			<div class="logo">
-			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
-			</div>
-			<div class="row">
-				<div class="seven columns" id="searchBar">
-					<form action="search/search.cgi">
-						<input class="eight columns" type="text" name ="terms">
-						<input class="four columns button-primary" type="submit" value="Search">
-					</form>
-				</div>
-				<div class="five columns">
-					<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>&emsp;&emsp;
-					<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>&emsp;&emsp;
-					<?php
-					if (isset($_SESSION['username'])) {
-						echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>&emsp;&emsp;';
-					}
+					<div class="logo">
+					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+					</div>
+					<div class="row">
+						<div class="six columns" id="searchBar">
+							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
+								<input class="seven columns" type="text" name ="terms">
+								<input class="four columns button-primary" type="submit" value="Search">
+							</form>
+						</div>
+						<div class="one column">
+							<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
+						</div>
+						<div class="two columns">
+							<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>
+						</div>
+						<div class="two columns">
+						<?php
+						if (isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/logout.php">Log Out</a>';
+						}
 
-					else if (!isset($_SESSION['username'])) {
-						echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>&emsp;&emsp;';
-					}
-					?>
-					<i>
-					<?php
-					if (isset($_SESSION['name'])) {
-						echo "Hello, " . $_SESSION['name'];
-					 }
-					 ?>
-				 	</i>
-				</div>
-			</div>
+						else if (!isset($_SESSION['username'])) {
+							echo '<a href="http://cgi.soic.indiana.edu/~team38/users/login.php">Log In</a>';
+						}
+						?>
+						</div>
+		<div class="one column"><p>
+		<?php
+		if (isset($_SESSION['name'])) {
+			echo "Hello, " . $_SESSION['name'];
+		 }
+		 ?>
+	 	</p></div>
+					</div>
 		</nav>
 
 		<h2>Case Information</h2>
@@ -134,7 +138,7 @@ Nulla a turpis sit amet nisl rutrum pharetra at et risus. Nunc egestas vitae sem
 
 		if (mysqli_num_rows($caseQuery) > 0) {
 			while ($record = mysqli_fetch_assoc($caseQuery)) {
-				echo "<h2>Case Discussion: " . $record["victim_first"] . " " . $record["victim_last"] . "</h2>";
+				echo "<h2 id='discussion'>Case Discussion: " . $record["victim_first"] . " " . $record["victim_last"] . "</h2>";
 			}
 		}
 
