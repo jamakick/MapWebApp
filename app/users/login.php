@@ -34,20 +34,6 @@ if (isset($_SESSION['username'])) {
 					<div class="logo">
 					<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
 					</div>
-					<div class="row">
-						<div class="six columns" id="searchBar">
-							<form action="http://cgi.soic.indiana.edu/~team38/search/search.cgi">
-								<input class="seven columns" type="text" name ="terms">
-								<input class="four columns button-primary" type="submit" value="Search">
-							</form>
-						</div>
-						<div class="one column">
-							<a href="http://cgi.soic.indiana.edu/~team38/profile.php">Profile</a>
-						</div>
-						<div class="two columns">
-							<a href="http://cgi.soic.indiana.edu/~team38/subscription.php ">Subscriptions</a>
-						</div>
-					</div>
 		</nav>
 	<h1 id ="register"> Log In </h1>
 
