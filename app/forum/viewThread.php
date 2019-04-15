@@ -1,3 +1,8 @@
+<?php
+
+		session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -60,7 +65,7 @@
 
 
 		<?php
-		session_start();
+
 
 		$username = $_SESSION['username'];
 
@@ -103,7 +108,7 @@
 
 
 		if (mysqli_num_rows($replyQuery) > 0) {
-      echo "<table border=1px>";
+      echo "<table class='u-full-width'>";
       echo "<tr>";
       echo "<th>Username</th>";
       echo "<th>Reply text</th>";
