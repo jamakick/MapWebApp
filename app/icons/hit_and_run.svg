@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>hit and run</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-17.8%" y="-12.5%" width="135.6%" height="125.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.742272418   0 0 0 0 0.088444938   0 0 0 0 0  0 0 0 0.100770323 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M0,29.1666667 C0,51.0416667 29.1666667,83.3333333 29.1666667,83.3333333 C29.1666667,83.3333333 58.3333333,51.0416667 58.3333333,29.1666667 C58.3333333,13.0416667 45.2916667,1.42108547e-14 29.1666667,1.42108547e-14 C13.0416667,1.42108547e-14 0,13.0416667 0,29.1666667 Z M29.5,51 C17.632,51 8,41.368 8,29.5 C8,17.632 17.632,8 29.5,8 C41.368,8 51,17.632 51,29.5 C51,41.368 41.368,51 29.5,51 L29.5,51 Z" id="path-2"></path>
+        <rect id="path-4" x="0" y="0" width="208" height="208"></rect>
+        <path d="M17.92125,6.905 C19.70875,6.905 21.17125,5.4425 21.17125,3.655 C21.17125,1.8675 19.70875,0.405 17.92125,0.405 C16.13375,0.405 14.67125,1.8675 14.67125,3.655 C14.67125,5.4425 16.13375,6.905 17.92125,6.905 L17.92125,6.905 Z M12.07125,29.4925 L13.69625,22.3425 L17.10875,25.5925 L17.10875,35.3425 L20.35875,35.3425 L20.35875,23.155 L16.94625,19.905 L17.92125,15.03 C20.03375,17.4675 23.28375,19.0925 26.85875,19.0925 L26.85875,15.8425 C23.77125,15.8425 21.17125,14.2175 19.87125,11.9425 L18.24625,9.3425 C17.59625,8.3675 16.62125,7.7175 15.48375,7.7175 C14.99625,7.7175 14.67125,7.88 14.18375,7.88 L5.73375,11.455 L5.73375,19.0925 L8.98375,19.0925 L8.98375,13.5675 L11.90875,12.43 L9.30875,25.5925 L1.34625,23.9675 L0.69625,27.2175 L12.07125,29.4925 L12.07125,29.4925 Z" id="path-6"></path>
+        <rect id="path-8" x="0" y="0" width="81" height="81"></rect>
+    </defs>
+    <g id="hit-and-run" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_place" filter="url(#filter-1)" transform="translate(21.000000, 8.000000)">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g id="🎨-Color" mask="url(#mask-3)">
+                <g transform="translate(-75.000000, -62.000000)">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-4"></use>
+                    </mask>
+                    <use id="Black" stroke="none" fill="#F38181" fill-rule="evenodd" xlink:href="#path-4"></use>
+                </g>
+            </g>
+        </g>
+        <g id="ic_directions_run" transform="translate(36.000000, 20.000000)">
+            <mask id="mask-7" fill="white">
+                <use xlink:href="#path-6"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g id="🎨-Color" mask="url(#mask-7)">
+                <g transform="translate(-25.000000, -23.000000)">
+                    <mask id="mask-9" fill="white">
+                        <use xlink:href="#path-8"></use>
+                    </mask>
+                    <use id="Black" stroke="none" fill="#F38181" fill-rule="evenodd" xlink:href="#path-8"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

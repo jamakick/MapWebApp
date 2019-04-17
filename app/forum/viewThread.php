@@ -1,3 +1,8 @@
+<?php
+
+		session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -23,8 +28,8 @@
 
 
 		<nav role="navigation">
-			<div class="logo">
-			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1>Cold Case Connection</h1></a>
+			<div>
+			<a href="http://cgi.soic.indiana.edu/~team38/index.php"><h1 class="logo">Cold Case Connection</h1></a>
 			</div>
 			<div class="row">
 				<div class="seven columns" id="searchBar">
@@ -60,7 +65,7 @@
 
 
 		<?php
-		session_start();
+
 
 		$username = $_SESSION['username'];
 
@@ -103,7 +108,7 @@
 
 
 		if (mysqli_num_rows($replyQuery) > 0) {
-      echo "<table border=1px>";
+      echo "<table class='u-full-width'>";
       echo "<tr>";
       echo "<th>Username</th>";
       echo "<th>Reply text</th>";
