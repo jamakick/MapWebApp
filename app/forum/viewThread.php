@@ -138,10 +138,8 @@
 				echo "<td>" . $row["reply_date"] . "</td>";
 				echo "<td>" . $row["reply_replies"] . "</td>";
 				echo "<td>" . $row["reply_votes"]  . "</td>";
-        echo "<td><a href='createReplyForm.php?rid=$replyId'>Reply</a></td>";
 				echo "<td><a href='vote.php?type=up&rid=$replyId'>Upvote</a></td>";
 				echo "<td><a href='vote.php?type=down&rid=$replyId'>Downvote</a></td>";
-        echo "<td><a href='#'>Report</a></td>";
 				if ($user_id == $authorId) {
 					echo "<td><a href='deleteReply.php?id=$replyId'>Delete</a></td>";
 					echo "<td><a href='editReplyForm.php?id=$replyId'>Edit</a></td>";
