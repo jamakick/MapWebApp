@@ -80,7 +80,7 @@ session_start();
 		if (mysqli_num_rows($userQuery) > 0) {
 			while ($row = mysqli_fetch_assoc($userQuery)) {
 
-				echo "<div class='victiminfo'><p>Victim's ID: " . $row["id"] . "</p>";
+				echo "<div class='victiminfo'>";
 				echo "<p>Victim's Name: " . $row["victim_first"] . " " . $row["victim_last"] . "</p>";
 				echo "<p>Victim's Gender: " . $row["victim_gender"] . "</p>";
 				echo "<p>Victim's Race: " . $row["victim_race"] . "</p>";

@@ -118,10 +118,6 @@ session_start();
 
 		cases = newCases;
 
-
-
-
-
 		}
 
 		var map;
@@ -129,11 +125,12 @@ session_start();
 		var markers = []
 		var allMarkers = []
 
-		function createMarker(location, title, infoString) {
+		function createMarker(location, title, infoString, markerIcon) {
 			var marker = new google.maps.Marker({
 				position: location,
 				map: map,
-				title: title
+				title: title,
+				icon: markerIcon
 			});
 
 			markers.push(marker);
@@ -177,7 +174,29 @@ session_start();
 			var markerString = String(cases[i]) + "<a href='http://cgi.soic.indiana.edu/~team38/caseinfo.php?id=" + cases[i][0] + "'>Go to Case Details</a>";
 			var position = {lat: parseFloat(cases[i][12]), lng: parseFloat(cases[i][13])};
 
-			createMarker(position, "Click to Zoom", markerString);
+			var icon = cases[i][10];
+
+			var iconImg;
+
+			switch (icon) {
+
+				case "murder":
+					iconImg = "http://cgi.soic.indiana.edu/~team38/icons/murder.svg";
+					break;
+				case "hit and run":
+					iconImg = "http://cgi.soic.indiana.edu/~team38/icons/hit_and_run.svg";
+					break;
+				case "kidnapping":
+					iconImg = "http://cgi.soic.indiana.edu/~team38/icons/kidnapping.svg";
+					break;
+				case "missing presumed dead":
+					iconImg = "http://cgi.soic.indiana.edu/~team38/icons/missing.svg";
+					break;
+			}
+
+			console.log(iconImg);
+
+			createMarker(position, "Click to Zoom", markerString, iconImg);
 
 			}
 
@@ -224,7 +243,6 @@ session_start();
 			output += " - " + cases[i][6] + ", " + cases[i][7];
 			output += '</button>';
 			output += '<div class="sideResult" data-id="' + cases[i][0] + '"><p>';
-			output += "ID: " + cases[i][0];
 			output += "<br>Name: " + cases[i][1] + " " + cases[i][2];
 			output += "<br>Gender: " + cases[i][3];
 			output += "<br>Nationality: " + cases[i][4];
