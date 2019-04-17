@@ -90,7 +90,7 @@ session_start();
 								utf8_encode($row["user_first"]),
 								utf8_encode($row["user_last"]),
 								utf8_encode($row["username"]),
-								utf8_encode($row["browsing_history"]));
+								utf8_encode($row["reset_pin"]));
 
 				}
 				mysqli_free_result($userQuery);
@@ -111,7 +111,6 @@ session_start();
 			userString += "<h3>Name: </h3> <p>" + info[2] + " " + info[3] + "</p>";
 			userString += "<h3>Username: </h3> <p>" + info[4] + "</p>";
 			userString += "<h3>Email: </h3> <p>" + info[1] + "</p>";
-			userString += "<h3>Browsing History: </h3> <p>" + info[5] + "</p>";
 
 
 			infoHolder.innerHTML = userString;

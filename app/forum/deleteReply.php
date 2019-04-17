@@ -54,6 +54,7 @@
 			 	</i>
 			</div>
 		</div>
+
 	</nav>
 
 	<div class="forum">
