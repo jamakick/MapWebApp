@@ -95,8 +95,14 @@ session_start();
 
 		}
 		/////////////////////////// END JAKE'S STUFF ///////////////////////
+		$summaryQuery = mysqli_query($connection, "SELECT summary FROM cases WHERE id = $id");
 
-		echo "<h2>Case Summary</h2><p></p>" ;
+		if (mysqli_num_rows($summaryQuery) > 0 ) {
+			while ($elem = mysqli_fetch_assoc($summaryQuery)) {
+				$summary = $elem["summary"];
+			}
+		}
+		echo "<h2>Case Summary</h2><p>$summary</p>" ;
 
 		echo "<h2>Photos</h2><p>Note: Photos are uploaded by users and are subject to our Terms of Service.</p>";
 		echo "<div class='gallery'>";
