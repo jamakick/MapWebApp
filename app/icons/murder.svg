@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50pt" height="50pt" viewBox="0 0 50 50" version="1.1">
-<defs>
-<image id="image14" width="50" height="50" xlink:href="data:image/png;base64,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"/>
-<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
-  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-</filter>
-<image id="image19" width="50" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABQklEQVRoge3UoUsEURDH8d/MvJUNi7KwYFDQoMFiEwSjYjFcsdgEm0XsNv8OQUEsYtEiIoLnWbScmE4R/4AzXTiU3XfPdKBXRLy5E50PbJ3vG5b3AGOMMcaYL0mWJRXn1ndEFvt9lh+ZYt4V5mKAOa84N6PdY63BY0QpAHiAaiGkWp02pzV40rnNZp7XM6LamvdnWp02lT8icTyaeF/KiGoAcBRFKxoddQciVWEuPn1RtNzvc31b5xJzzPUNkUPNptpl/+gNOLkIYUHSdFCr0ZNFhpjLI0TlrUbjdtu5WY2G2qvV6dT70jDz0n4cP6Eouj5fuj4RwDVz/AJMPAAJAIwTHT+3WtW7EB5Dnjc1mmouRW7al33euVXtXk/uSC/YIr/Nn1lE7fl9Jdq7As4BYBq4T7RCxhhjjDHGGGOMMeY/egdm3ExWOAxcYQAAAABJRU5ErkJggg=="/>
-<mask id="mask0">
-  <g filter="url(#alpha)">
-<use xlink:href="#image19"/>
-  </g>
-</mask>
-<clipPath id="clip1">
-  <rect width="50" height="50"/>
-</clipPath>
-<g id="surface21" clip-path="url(#clip1)">
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(21.960784%,81.176471%,90.588235%);fill-opacity:1;" d="M 8 -1.5 L 47.5 -1.5 L 47.5 38.5 L 8 38.5 Z M 8 -1.5 "/>
-</g>
-</defs>
-<g id="surface1">
-<use xlink:href="#image14"/>
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(21.960784%,81.176471%,90.588235%);fill-opacity:1;" d="M 28.464844 16.75 L 29.117188 17.125 L 27.617188 19.722656 L 26.964844 19.347656 Z M 28.464844 16.75 "/>
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(21.960784%,81.176471%,90.588235%);fill-opacity:1;" d="M 29.859375 14.089844 L 30.117188 15.640625 L 28.472656 18.488281 L 27.609375 17.988281 Z M 29.859375 14.089844 "/>
-<use xlink:href="#surface21" mask="url(#mask0)"/>
-</g>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>murder</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-35.6%" y="-25.0%" width="172.9%" height="150.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.552500447   0 0 0 0 0.698312953  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M14.5833333,1.42108547e-14 C6.52083333,1.42108547e-14 0,6.52083333 0,14.5833333 C0,25.5208333 14.5833333,41.6666667 14.5833333,41.6666667 C14.5833333,41.6666667 29.1666667,25.5208333 29.1666667,14.5833333 C29.1666667,6.52083333 22.6458333,1.42108547e-14 14.5833333,1.42108547e-14 L14.5833333,1.42108547e-14 Z M14.75,25.5 C8.816,25.5 4,20.684 4,14.75 C4,8.816 8.816,4 14.75,4 C20.684,4 25.5,8.816 25.5,14.75 C25.5,20.684 20.684,25.5 14.75,25.5 L14.75,25.5 Z" id="path-2"></path>
+        <rect id="path-4" x="0" y="0" width="104" height="104"></rect>
+        <path d="M1.19584117,10 L0,10 L0,5.6 C0,4.72 0.717504703,4 1.5944549,4 L3.98613724,4 C4.86308743,4 5.27448475,4.53201983 5.58059214,5.6 C5.88669952,6.66798017 5.79335459,6.78167752 6.23792549,7.5080266 C6.63982262,7.7495193 7.5,8.08346452 7.5,8.08346452 L7.05093704,8.99923921 C7.05093704,8.99923921 6.23660936,8.79689187 5.46786593,8.32 C4.65068526,7.29166137 4.38475096,5.78472679 4.38475096,5.78472679 L4.38475096,16 L1.19584117,16 L1.19584117,10 Z M2.79029607,3.2 C3.67521854,3.2 4.38475096,2.488 4.38475096,1.6 C4.38475096,0.712 3.67521854,0 2.79029607,0 C1.9053736,0 1.19584117,0.712 1.19584117,1.6 C1.19584117,2.488 1.9053736,3.2 2.79029607,3.2 L2.79029607,3.2 Z" id="path-6"></path>
+        <rect id="path-8" x="0" y="0" width="39.5" height="40"></rect>
+    </defs>
+    <g id="murder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(10.000000, 4.000000)">
+            <g id="ic_place" filter="url(#filter-1)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="🎨-Color" mask="url(#mask-3)">
+                    <g transform="translate(-37.500000, -31.000000)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="Black" stroke="none" fill="#38CFE7" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+            </g>
+            <g id="Group" transform="translate(10.500000, 6.500000)">
+                <g id="Group-2" transform="translate(7.899519, 6.500000) rotate(30.000000) translate(-7.899519, -6.500000) translate(7.149519, 3.500000)" fill="#38CFE7">
+                    <rect id="Rectangle" x="0.25" y="3" width="1" height="3"></rect>
+                    <polygon id="Rectangle" points="0.125 0 1.125 1.21342245 1.125 4.5 0.125 4.5"></polygon>
+                </g>
+                <g id="ic_wc">
+                    <mask id="mask-7" fill="white">
+                        <use xlink:href="#path-6"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="🎨-Color" mask="url(#mask-7)">
+                        <g transform="translate(-13.000000, -12.000000)">
+                            <mask id="mask-9" fill="white">
+                                <use xlink:href="#path-8"></use>
+                            </mask>
+                            <use id="Black" stroke="none" fill="#38CFE7" fill-rule="evenodd" xlink:href="#path-8"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

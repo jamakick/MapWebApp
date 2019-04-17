@@ -1,40 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50pt" height="50pt" viewBox="0 0 50 50" version="1.1">
-<defs>
-<image id="image14" width="50" height="50" xlink:href="data:image/png;base64,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"/>
-<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
-  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-</filter>
-<image id="image19" width="50" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAA8ElEQVRoge3Sv0rEQBAG8JnZWQJHSt8gYGElWIiFzT1HChtBhJB3UCztvdomhQ9wNtfkrvMBItgq2GgVhPxhr7qrLJRkkxTfD7ZYGL5vB5YIAAAAAGAqblWzuchnaszZ2G/p5Fjky4g096rp2G/p5EH19E31ykRR4COffYQ+qiaFc8lf5+/a9rBrp3YN+M010YaYf3b3Z+cuz5072Q8w38yYP3x0e2VEMiPS7I+1R313SN+BY8Ei/xUTvZfMua/8wRb5JlpeWBv7ysfXmhozRMmTql049/oShkVeVXwQBKt1XZdDdAMAAAAAAAAAAEzZFkqgL2yKAJwxAAAAAElFTkSuQmCC"/>
-<mask id="mask0">
-  <g filter="url(#alpha)">
-<use xlink:href="#image19"/>
-  </g>
-</mask>
-<clipPath id="clip1">
-  <rect width="50" height="50"/>
-</clipPath>
-<g id="surface21" clip-path="url(#clip1)">
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(43.921569%,89.411765%,56.470588%);fill-opacity:1;" d="M 11.277344 3.625 L 43.222656 3.625 L 43.222656 34.875 L 11.277344 34.875 Z M 11.277344 3.625 "/>
-</g>
-<image id="image25" width="50" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAA8ElEQVRoge3UsUoDQRAG4H9njiA2gZDy4K4RWyurcLVt3iJdIJ0WNgc+gn06xSewsDEQ0sS8QeDgEkKKVIIWd6fVNcJVjhs5/g+22Gb+HXZ2ASIiIiIi3y5VB4nIPg2Ch2Of5VfGqhMVKS5EDj5zA+uC/TC8X242HwvgbVRV1uUbmTZy3emcX+X59AnoBcBXrvoYluWtZYYXZ6o3KlLUqyvy6StbLIutf9zw+x+MbhPTRo7JtJFT57ZDYFfvn51bWdb3aq56V7+RNIpOfOVytP6b1jRi/j2+AK8z5wAASRwXyDLrCCIiIiIiIiIiotb4BuN7K5MgnvfwAAAAAElFTkSuQmCC"/>
-<mask id="mask1">
-  <g filter="url(#alpha)">
-<use xlink:href="#image25"/>
-  </g>
-</mask>
-<clipPath id="clip2">
-  <rect width="50" height="50"/>
-</clipPath>
-<g id="surface27" clip-path="url(#clip2)">
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(43.921569%,89.411765%,56.470588%);fill-opacity:1;" d="M 8.570312 3.625 L 40.714844 3.625 L 40.714844 34.875 L 8.570312 34.875 Z M 8.570312 3.625 "/>
-</g>
-</defs>
-<g id="surface1">
-<use xlink:href="#image14"/>
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(43.921569%,89.411765%,56.470588%);fill-opacity:1;" d="M 31.75 15.5 L 32.5 15.5 L 32.5 18.5 L 31.75 18.5 Z M 31.75 15.5 "/>
-<use xlink:href="#surface21" mask="url(#mask0)"/>
-<use xlink:href="#surface27" mask="url(#mask1)"/>
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(43.921569%,89.411765%,56.470588%);fill-opacity:1;" d="M 31.625 12.5 L 32.625 13.714844 L 32.625 17 L 31.625 17 Z M 31.625 12.5 "/>
-</g>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>kidnapping</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-35.6%" y="-25.0%" width="172.9%" height="150.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.80542346   0 0 0 0 0.113174669  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M14.5833333,1.42108547e-14 C6.52083333,1.42108547e-14 0,6.52083333 0,14.5833333 C0,25.5208333 14.5833333,41.6666667 14.5833333,41.6666667 C14.5833333,41.6666667 29.1666667,25.5208333 29.1666667,14.5833333 C29.1666667,6.52083333 22.6458333,1.42108547e-14 14.5833333,1.42108547e-14 L14.5833333,1.42108547e-14 Z M14.75,25.5 C8.816,25.5 4,20.684 4,14.75 C4,8.816 8.816,4 14.75,4 C20.684,4 25.5,8.816 25.5,14.75 C25.5,20.684 20.684,25.5 14.75,25.5 L14.75,25.5 Z" id="path-2"></path>
+        <rect id="path-4" x="0" y="0" width="104" height="104"></rect>
+        <path d="M5.75,0 C6.45277778,0 7.02777778,0.5625 7.02777778,1.25 C7.02777778,1.9375 6.45277778,2.5 5.75,2.5 C5.04722222,2.5 4.47222222,1.9375 4.47222222,1.25 C4.47222222,0.5625 5.04722222,0 5.75,0 L5.75,0 Z M11.5,4.375 L7.66666667,4.375 L7.66666667,12.5 L6.38888889,12.5 L6.38888889,8.75 L5.11111111,8.75 L5.11111111,12.5 L3.83333333,12.5 L3.83333333,4.375 L0,4.375 L0,3.125 L11.5,3.125 L11.5,4.375 L11.5,4.375 Z" id="path-6"></path>
+        <rect id="path-8" x="0" y="0" width="31.9444444" height="31.25"></rect>
+        <path d="M0.964285714,12.5 L0.964285714,7.8125 L0,7.8125 L0,4.375 C0,3.6875 0.578571429,3.125 1.28571429,3.125 L3.21428571,3.125 C3.92142857,3.125 4.5,3.6875 4.5,4.375 L4.5,7.8125 L3.53571429,7.8125 L3.53571429,12.5 L0.964285714,12.5 L0.964285714,12.5 Z M2.25,2.5 C2.96357143,2.5 3.53571429,1.94375 3.53571429,1.25 C3.53571429,0.55625 2.96357143,0 2.25,0 C1.53642857,0 0.964285714,0.55625 0.964285714,1.25 C0.964285714,1.94375 1.53642857,2.5 2.25,2.5 L2.25,2.5 Z" id="path-10"></path>
+        <rect id="path-12" x="0" y="0" width="32.1428571" height="31.25"></rect>
+    </defs>
+    <g id="kidnapping" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(10.000000, 4.000000)">
+            <g id="ic_place" filter="url(#filter-1)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="🎨-Color" mask="url(#mask-3)">
+                    <g transform="translate(-37.500000, -31.000000)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="Black" stroke="none" fill="#70E490" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(9.000000, 8.500000)">
+                <rect id="Rectangle" fill="#70E490" x="12.25" y="3" width="1" height="3"></rect>
+                <g id="Group" transform="translate(0.000000, 0.500000)">
+                    <g id="ic_accessibility" transform="translate(2.000000, 0.000000)">
+                        <mask id="mask-7" fill="white">
+                            <use xlink:href="#path-6"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <g id="🎨-Color" mask="url(#mask-7)">
+                            <g transform="translate(-10.222222, -9.375000)">
+                                <mask id="mask-9" fill="white">
+                                    <use xlink:href="#path-8"></use>
+                                </mask>
+                                <use id="Black" stroke="none" fill="#70E490" fill-rule="evenodd" xlink:href="#path-8"></use>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ic_wc">
+                        <mask id="mask-11" fill="white">
+                            <use xlink:href="#path-10"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <g id="🎨-Color" mask="url(#mask-11)">
+                            <g transform="translate(-10.928571, -9.375000)">
+                                <mask id="mask-13" fill="white">
+                                    <use xlink:href="#path-12"></use>
+                                </mask>
+                                <use id="Black" stroke="none" fill="#70E490" fill-rule="evenodd" xlink:href="#path-12"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <polygon id="Rectangle" fill="#70E490" points="12.125 0 13.125 1.21342245 13.125 4.5 12.125 4.5"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>
