@@ -56,6 +56,7 @@ session_start();
 				 	</i>
 				</div>
 			</div>
+
 		</nav>
 
 		<h2>Case Information</h2>
