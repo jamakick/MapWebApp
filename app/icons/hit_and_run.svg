@@ -1,51 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>hit and run</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-17.8%" y="-12.5%" width="135.6%" height="125.0%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0.742272418   0 0 0 0 0.088444938   0 0 0 0 0  0 0 0 0.100770323 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-        <path d="M0,29.1666667 C0,51.0416667 29.1666667,83.3333333 29.1666667,83.3333333 C29.1666667,83.3333333 58.3333333,51.0416667 58.3333333,29.1666667 C58.3333333,13.0416667 45.2916667,1.42108547e-14 29.1666667,1.42108547e-14 C13.0416667,1.42108547e-14 0,13.0416667 0,29.1666667 Z M29.5,51 C17.632,51 8,41.368 8,29.5 C8,17.632 17.632,8 29.5,8 C41.368,8 51,17.632 51,29.5 C51,41.368 41.368,51 29.5,51 L29.5,51 Z" id="path-2"></path>
-        <rect id="path-4" x="0" y="0" width="208" height="208"></rect>
-        <path d="M17.92125,6.905 C19.70875,6.905 21.17125,5.4425 21.17125,3.655 C21.17125,1.8675 19.70875,0.405 17.92125,0.405 C16.13375,0.405 14.67125,1.8675 14.67125,3.655 C14.67125,5.4425 16.13375,6.905 17.92125,6.905 L17.92125,6.905 Z M12.07125,29.4925 L13.69625,22.3425 L17.10875,25.5925 L17.10875,35.3425 L20.35875,35.3425 L20.35875,23.155 L16.94625,19.905 L17.92125,15.03 C20.03375,17.4675 23.28375,19.0925 26.85875,19.0925 L26.85875,15.8425 C23.77125,15.8425 21.17125,14.2175 19.87125,11.9425 L18.24625,9.3425 C17.59625,8.3675 16.62125,7.7175 15.48375,7.7175 C14.99625,7.7175 14.67125,7.88 14.18375,7.88 L5.73375,11.455 L5.73375,19.0925 L8.98375,19.0925 L8.98375,13.5675 L11.90875,12.43 L9.30875,25.5925 L1.34625,23.9675 L0.69625,27.2175 L12.07125,29.4925 L12.07125,29.4925 Z" id="path-6"></path>
-        <rect id="path-8" x="0" y="0" width="81" height="81"></rect>
-    </defs>
-    <g id="hit-and-run" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="ic_place" filter="url(#filter-1)" transform="translate(21.000000, 8.000000)">
-            <mask id="mask-3" fill="white">
-                <use xlink:href="#path-2"></use>
-            </mask>
-            <g id="Mask"></g>
-            <g id="🎨-Color" mask="url(#mask-3)">
-                <g transform="translate(-75.000000, -62.000000)">
-                    <mask id="mask-5" fill="white">
-                        <use xlink:href="#path-4"></use>
-                    </mask>
-                    <use id="Black" stroke="none" fill="#F38181" fill-rule="evenodd" xlink:href="#path-4"></use>
-                </g>
-            </g>
-        </g>
-        <g id="ic_directions_run" transform="translate(36.000000, 20.000000)">
-            <mask id="mask-7" fill="white">
-                <use xlink:href="#path-6"></use>
-            </mask>
-            <g id="Mask"></g>
-            <g id="🎨-Color" mask="url(#mask-7)">
-                <g transform="translate(-25.000000, -23.000000)">
-                    <mask id="mask-9" fill="white">
-                        <use xlink:href="#path-8"></use>
-                    </mask>
-                    <use id="Black" stroke="none" fill="#F38181" fill-rule="evenodd" xlink:href="#path-8"></use>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50pt" height="50pt" viewBox="0 0 50 50" version="1.1">
+<defs>
+<image id="image14" width="50" height="50" xlink:href="data:image/png;base64,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"/>
+<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+</filter>
+<image id="image19" width="50" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB/klEQVRoge3WMWgTURwG8P/7vndtjmuLlRAjEUIHBZEKIggOiuhYRYcWRCnRQVBBa50KSpeCdJJiEQLSpUUXpaM6lAgSMliKQ6mLghbFIWghYKCEa3TplRJEEr3LIfx/cPCG477vz+M9TkQppZRSqiXnE4nMCPk0A8yxu3tn3H3+2igwTcAn4JMcjyIDUXy00Q9jPgXr4W3r/07adXdXHGcoBwzE3aVlE9ls4pS1lxbIRQJ+nlye6epKxt2racxk3Jfk5HGgvHUuNp8sMBt3v6Y96ezsC3ZgD3mncZgZx7kQd8emBIMkybuDwOlggH1AJQesukBtFJiet/bIt1TKCys30lvrhTGHgvWSMW+9jo5jO4x59UDk2lC9Xnq9tnY5yvx/8q6np7dE3lshT14k54MdmSLvB++MO87BOWtvjJBH4+zatBywGgwyCHz56DgH4u7UsjHPSxHwF8jFOlkg4J8Bvo55XiqKvNDOSNHa61PkShaYzVt78/v6+rCISFWk4KTTA73GFJ6LpPbWarvCyoyEsfZKnlx2gdr263Y/cE5EZMLaW5vXb38U+aHtyE/ff3R1Y6P/czLZe9iYEw+B230ij8+6bimsjD+xYX8wWS5XRaT4RqQoIjJZrYYd8Vtt+ftth7YN8qFefy8iz5bISrsylVJKKaWUUkoppVSjX3wrf4hu0EJiAAAAAElFTkSuQmCC"/>
+<mask id="mask0">
+  <g filter="url(#alpha)">
+<use xlink:href="#image19"/>
+  </g>
+</mask>
+<clipPath id="clip1">
+  <rect width="50" height="50"/>
+</clipPath>
+<g id="surface21" clip-path="url(#clip1)">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(95.294118%,50.588235%,50.588235%);fill-opacity:1;" d="M 5.5 -1.5 L 46 -1.5 L 46 39 L 5.5 39 Z M 5.5 -1.5 "/>
+</g>
+</defs>
+<g id="surface1">
+<use xlink:href="#image14"/>
+<use xlink:href="#surface21" mask="url(#mask0)"/>
+</g>
 </svg>
