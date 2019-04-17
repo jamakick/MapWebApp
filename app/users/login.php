@@ -63,6 +63,8 @@ if (isset($_SESSION['username'])) {
 	</div>
 
 	<div class="registerForm"><p>Need to Register? Click <a href="registerForm.php">Here</a></p></div>
+
+	<div class="registerForm"><p>Forgot your password? Click <a href="resetPass.php">Here</a></p></div>
 	</div>
 
 	</form>
