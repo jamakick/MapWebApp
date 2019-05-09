@@ -221,7 +221,7 @@ session_start();
 
 		</script>
 
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZEJyvEqCczHBAYFHU28pUA1AMHYgOFg&callback=initMap" aysnc defer></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=Nonecallback=initMap" aysnc defer></script>
 
 		<div id="sideView">
 
